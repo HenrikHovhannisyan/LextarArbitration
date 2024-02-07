@@ -19,7 +19,7 @@
         </li>
         <li>
             <a href="{{ route('files.index') }}" class="{{ isActiveRoute('files.index') }}">
-                <i class="fa-solid fa-users"></i>
+                <i class="fa-solid fa-file-pdf"></i>
                 <span class="ms-1">Files</span>
             </a>
         </li>
