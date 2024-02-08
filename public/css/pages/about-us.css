@@ -1,0 +1,120 @@
+.section-title.about-title {
+    margin: 0 auto;
+    max-width: 820px;
+}
+
+.section-title.about-title .buttons-part {
+    margin: 0 auto;
+    max-width: 820px;
+}
+
+.about-hero .about-hero-image {
+    margin: 40px 0 120px;
+    max-width: 100%;
+    max-height: 600;
+    height: 100%;
+}
+
+.about-hero .about-hero-image img {
+    max-width: 100%;
+}
+
+.about-hero .about-page-details {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.about-hero .about-page-details .about-page-details-item {
+    display: grid;
+    justify-content: center;
+    margin: 0 auto;
+    max-width: 440px;
+    border-right: 1px solid #2672D31A;
+    width: 100%;
+    text-align: center;
+}
+
+.about-hero .about-page-details .about-page-details-item:last-child {
+    border-right: none;
+}
+
+.about-hero .about-page-details .about-page-details-item .description {
+    font-size: 18px;
+    line-height: 32px;
+}
+
+.our-history .our-history-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 170px;
+}
+
+.our-history .our-history-content .image-part {
+    max-width: 586px;
+    width: 100%;
+}
+
+.our-history .our-history-content .text-part {
+    max-width: 564px;
+    width: 100%;
+}
+
+.our-history .our-history-content .text-part .secondary-title,
+.why-us-section-content .left-side .secondary-title {
+    margin-bottom: 32px;
+}
+
+.why-us-section-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 176px;
+}
+
+.why-us-section-content .left-side {
+    width: 100%;
+    max-width: 564px;
+}
+
+.why-us-section-content .right-side {
+    width: 100%;
+    max-width: 580px;
+    display: grid;
+    gap: 24px;
+}
+
+.why-us-section-content .right-side .right-side-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 24px;
+}
+
+.why-us-section-content .right-side .right-side-item img {
+    width: 80px;
+    height: 80px;
+}
+
+.why-us-section-content .right-side .right-side-item .details {
+    display: grid;
+    gap: 8px;
+}
+
+.why-us-section-content .right-side .right-side-item .details .item-title {
+    font-size: 20px;
+    line-height: 36px;
+    margin: 0;
+}
+
+.why-us-section-content .right-side .right-side-item .details .item-paragraph {
+    font-size: 14px;
+    line-height: 25px;
+    color: var(--primary-color);
+    opacity: 80%;
+}
+
+.file-online.about-page {
+    margin: 80px 0 0;
+}

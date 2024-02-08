@@ -1,0 +1,142 @@
+footer {
+    background-color: #113F7A;
+    color: #ffffff;
+}
+
+footer .footer-content {
+    display: flex;
+    justify-content: space-between;
+    padding: 80px 0;
+    border-bottom: 1px solid #295287;
+}
+
+footer .footer-content .column {
+    width: 100%;
+}
+
+footer .footer-content .column:nth-child(1) {
+    width: 135%;
+}
+
+footer .footer-content .logo {
+    max-width: 120px;
+    height: 62px;
+    margin-bottom: 40px;
+}
+
+footer .footer-content .footer-contact-list {
+    display: grid;
+    gap: 12px;
+}
+
+footer .footer-content .footer-contact-list .location {
+    background-image: url("../../images/basil_location-solid.png");
+    max-width: 350px;
+}
+
+footer .footer-content .footer-contact-list .phone {
+    background-image: url("../../images/ic_round-phone.png");
+}
+
+footer .footer-content .footer-contact-list .location,
+footer .footer-content .footer-contact-list .phone {
+    color: #ffffff;
+    padding-left: 45px;
+    background-repeat: no-repeat;
+    background-position: 0 5%;
+    background-size: 32px;
+}
+
+footer .footer-content .footer-title {
+    font-size: 18px;
+    line-height: 32px;
+}
+
+footer .footer-content .column ul {
+    list-style: none;
+    display: grid;
+    gap: 8px;
+    margin: 24px 0 0;
+    padding: 0;
+}
+
+footer .footer-content .column ul li a {
+    color: #ffffff;
+    opacity: 80%;
+}
+
+footer .footer-content .column .footer-subscribe-form {
+    max-width: 300px;
+    width: 100%;
+    height: 50px;
+    border-radius: 4px;
+    background-color: #171A1E4D;
+    display: flex;
+    flex-direction: row;
+    padding: 8px 8px 8px 12px;
+    margin: 16px 0 40px;
+}
+
+footer .footer-content .column .footer-subscribe-form input {
+    border: none;
+    background-color: transparent;
+    max-width: 180px;
+    width: 100%;
+    caret-color: auto;
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 29px;
+    opacity: 80%;
+    padding-right: 10px;
+}
+
+footer .footer-content .column .footer-subscribe-form input::placeholder {
+    color: #ffffff;
+}
+
+footer .footer-content .column .footer-subscribe-form .subscribe {
+    border: none;
+    background-color: var(--secondary-color);
+    color: #ffffff;
+    max-width: 100px;
+    width: 100%;
+    border-radius: 4px;
+    font-size: 14px;
+    line-height: 25px;
+    cursor: pointer;
+    font-family: PTSerif-Bold;
+}
+
+footer .footer-content .column .social-links ul {
+    display: flex;
+    gap: 10px;
+    list-style: none;
+    margin: 14px 0 0;
+    padding: 0;
+}
+
+footer .footer-content .column .social-links ul a img {
+    display: block;
+}
+
+footer .copyright {
+    display: grid;
+    margin: 16px auto 24px;
+    gap: 16px;
+    justify-content: center;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 29px;
+    opacity: 80%;
+}
+
+footer .copyright a {
+    margin: 0 auto;
+}
+
+footer .copyright a img {
+    width: 24px;
+    height: 24px;
+    margin: 0 auto;
+}

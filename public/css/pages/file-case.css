@@ -1,0 +1,258 @@
+.faq-page.file-case .section-title {
+    border-bottom: 1px solid #2672D31A;
+    padding-bottom: 32px;
+}
+
+.file-case-content {
+    display: flex;
+    gap: 40px;
+}
+
+.file-case-content .left-side {
+    width: 100%;
+    max-width: 522px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.file-case-content .left-side .item {
+    width: 100%;
+    max-width: 522px;
+    display: grid;
+    gap: 16px;
+}
+
+.file-case-content .left-side .item .title {
+    font-size: 24px;
+    line-height: 43px;
+    margin: 0;
+}
+
+.file-case-content .left-side .item ul {
+    display: grid;
+    gap: 8px;
+    opacity: 80%;
+}
+
+.file-case-content .right-side {
+    background-color: #ffffff;
+    padding: 60px 40px;
+    border-radius: 4px;
+}
+
+.file-case-content .right-side .file-case-form {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin: 0;
+}
+
+.file-case-content .right-side .file-case-form .form-item {
+    display: grid;
+    gap: 8px;
+}
+
+.file-case-content .right-side .file-case-form .form-item span,
+.payment-info .payment-form .form-item span {
+    display: none;
+    font-size: 14px;
+    color: #EF0000;
+}
+
+.file-case-content .right-side .file-case-form.validation .form-item span,
+.payment-info .payment-form.validation .form-item span {
+    display: block;
+}
+
+.file-case-content .right-side .file-case-form input {
+    width: 316px;
+    height: 45px;
+    border: 1px solid #2672D333;
+    border-radius: 4px;
+    padding: 8px 12px;
+    font-size: 16px;
+    line-height: 29px;
+}
+
+.file-case-content .right-side .file-case-form.validation input,
+.file-case-content .right-side .file-case-form.validation textarea,
+.file-case-content .right-side .file-case-form.validation .file-input,
+.payment-info .payment-form.validation .form-item input,
+.payment-info .payment-form.validation .form-item select  {
+    border: 1px solid #EF0000;
+}
+
+.file-case-content .right-side .file-case-form .file-input {
+    background: url("../../images/attach-file.png") no-repeat left;
+    background-position: 2%;
+    height: 45px;
+    border: 1px solid #2672D333;
+    border-radius: 4px;
+    padding: 8px 12px 8px 0;
+    font-size: 16px;
+    line-height: 29px;
+    position: relative;
+    color: #171A1E99;
+}
+
+.file-case-content .right-side .file-case-form.validation .file-input {
+    margin-bottom: 20px;
+}
+
+.file-case-content .right-side .file-case-form .file-input .attach-text {
+    padding-left: 35px;
+}
+
+.file-case-content .right-side .file-case-form .file-input .file {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0;
+}
+
+.file-case-content .right-side .file-case-form textarea {
+    border: 1px solid #2672D333;
+    height: 140px;
+    padding: 12px;
+    resize: none;
+    border-radius: 4px;
+    font-size: 16px;
+    line-height: 29px;
+}
+
+.file-case-content .right-side .file-case-form .form-info {
+    padding: 12px;
+    background-color: #EEF4FB;
+    border-radius: 4px;
+    font-size: 14px;
+    display: grid;
+    gap: 10px;
+}
+
+.file-case-content .right-side .file-case-form.validation .form-info {
+    background-color: #EF00001A;
+}
+
+.file-case-content .right-side .file-case-form .form-info ul,
+.file-case-content .left-side .item ul {
+    margin: 0;
+}
+
+.file-case-content .right-side .file-case-form .submit {
+    width: 180px;
+    height: 56px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 12px;
+}
+
+.payment-info {
+    padding: 32px 0;
+}
+
+.payment-info .payement-info-main {
+    background-color: #ffffff;
+    padding: 60px 0;
+}
+
+.payment-info .payement-info-main .payment-info-content {
+    max-width: 574px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.payment-info .section-title {
+    border-bottom: none !important;
+    margin-bottom: 40px !important;
+    padding-bottom: 0 !important;
+}
+
+.payment-info .amout-to-pay {
+    background-color: #EF00001A;
+    display: flex;
+    justify-content: space-between;
+    border-radius: 4px;
+    font-size: 16px;
+    line-height: 21px;
+    padding: 21px 16px;
+}
+
+.payment-info .amout-to-pay span:nth-child(2) {
+    font-size: 20px;
+    line-height: 26.5px;
+}
+
+.payment-info .payment-form {
+    margin: 40px 0 32px 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.payment-info .payment-form .form-item {
+    width: 277px;
+    display: grid;
+    gap: 8px;
+}
+
+.payment-info .payment-form .form-item input,
+.payment-info .payment-form .form-item select {
+    height: 45px;
+    border: 1px solid #2672D333;
+    border-radius: 4px;
+    padding: 8px 12px;
+    font-size: 16px;
+    line-height: 29px;
+    color: #171A1E99;
+}
+
+.payment-info .payment-form .billing-info {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.payment-info .payment-form .billing-info .billing-title {
+    border-bottom: 1px solid #2672D31A;
+    margin-top: 12px;
+    margin-bottom: 4px;
+    padding-bottom: 16px;
+    font-size: 20px;
+    line-height: 36px;
+    width: 100%;
+}
+
+.payment-info .payment-form .form-buttons {
+    display: flex;
+    gap: 16px;
+    margin-top: 12px;
+    height: 56px;
+}
+
+.payment-info .payment-form .form-buttons .back-btn {
+    width: 120px;
+    border: 1px solid var(--secondary-color);
+    color: var(--secondary-color);
+    background: url("../../images/Arrow_Right_XL.png") no-repeat left;
+    background-size: inherit;
+    background-position: 25%;
+    padding-left: 35px;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 32px;
+}
+
+.payment-info .payment-form .form-buttons .pay-btn {
+    width: 438px;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 32px;
+}
+
+.payment-info .payment-form .form-buttons .pay-btn span {
+    padding-left: 5px;
+}

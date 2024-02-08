@@ -14,76 +14,117 @@
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
           crossorigin="anonymous" referrerpolicy="no-referrer"/>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="{{asset('/css/app.css')}}">
+    <link rel="stylesheet" href="{{asset('/css/main.css')}}">
 
     <!-- Scripts -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+            crossorigin="anonymous"></script>
+    <script src="{{asset('/js/app.js')}}"></script>
     <script src="{{asset('/js/app.js')}}"></script>
 </head>
 <body class="bg-white">
 <div id="app">
-    <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="{{ url('/') }}">
-                <img src="{{ asset('./img/logo.png') }}" height="30" alt="Logo">
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+    <header>
+        <div class="container">
+            <nav>
+                <a href="/"><div class="logo"><img src="{{asset('images/Logo.png')}}" alt="logo"></div></a>
+                <div class="navbar">
+                    <ul>
+                        <li><a href="about-us.html">About</a></li>
+                        <li class="menu_has_dropdown">
+                            <a>Practice Areas</a>
+                            <div class="header-dropdown">
+                                <div class="main-container">
+                                    <ul class="header-dropdown-menu">
+                                        <li><a href="practice-areas.html">Contract Disputes</a></li>
+                                        <li><a href="practice-areas.html">Employment Disputes</a></li>
+                                        <li><a href="practice-areas.html">Intellectual Property Disputes</a></li>
+                                        <li><a href="practice-areas.html">International Business Disputes</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </li>
+                        <li><a href="rules-forms.html">Rules & Forms</a></li>
+                        <li><a href="contact-us.html">Contact</a></li>
+                    </ul>
+                </div>
+                <ul class="nav-right-side">
+{{--                    <li class="menu_has_dropdown languages">
+                        <a href="">Eng</a>
+                        <div class="header-dropdown languages-dropdown">
+                            <div class="main-container">
+                                <ul class="header-dropdown-menu">
+                                    <li><a href="practice-areas.html">Eng</a></li>
+                                    <li><a href="practice-areas.html">Chi</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </li>--}}
 
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <!-- Left Side Of Navbar -->
-                <ul class="navbar-nav me-auto">
-
-                </ul>
-
-                <!-- Right Side Of Navbar -->
-                <ul class="navbar-nav ms-auto">
-                    <!-- Authentication Links -->
                     @guest
-                        @if (Route::has('login'))
-                            <li class="nav-item">
-                                <a class="nav-link nav_link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                            </li>
-                        @endif
+                        <li class="menu_has_dropdown">
+                            <a href="" class="sign-in">
+                                Sign in
+                            </a>
+                            <div class="header-dropdown sign-in-dropdown">
+                                <div class="main-container">
+                                    <ul class="header-dropdown-menu">
+                                        @if (Route::has('login'))
+                                            <li>
+                                                <a href="{{ route('login') }}">Sign in</a>
+                                            </li>
+                                        @endif
 
-                        @if (Route::has('register'))
-                            <li class="nav-item">
-                                <a class="nav-link nav_link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                            </li>
-                        @endif
+                                        @if (Route::has('register'))
+                                            <li>
+                                                <a href="{{ route('register') }}">Registrate</a>
+                                            </li>
+                                        @endif
+                                    </ul>
+                                </div>
+                            </div>
+                        </li>
                     @else
-                        <li class="nav-item dropdown">
-                            <a id="navbarDropdown" class="nav-link nav_link dropdown-toggle" href="#" role="button"
-                               data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                        <li class="menu_has_dropdown">
+                            <a href="" class="sign-in">
                                 {{ Auth::user()->name }}
                             </a>
-
-                            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="{{ route('logout') }}"
-                                   onclick="event.preventDefault();
+                            <div class="header-dropdown sign-in-dropdown">
+                                <div class="main-container">
+                                    <ul class="header-dropdown-menu">
+                                        <li>
+                                            <a href="{{ route('logout') }}"
+                                               onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                    {{ __('Logout') }}
-                                </a>
+                                                {{ __('Logout') }}
+                                            </a>
 
-                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                    @csrf
-                                </form>
+                                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                                @csrf
+                                            </form>
+                                        </li>
+                                    </ul>
+                                </div>
                             </div>
                         </li>
                     @endguest
+{{--                    <a href="file-case.html"><button class="secondary file-case-btn">File Your Case</button></a>--}}
                 </ul>
-            </div>
+            </nav>
+
         </div>
-    </nav>
+    </header>
 
     <main>
         @yield('content')
     </main>
+
+    @extends('layouts.footer')
 </div>
 </body>
 </html>

@@ -1,0 +1,65 @@
+.faq-page.rules-forms .right-side .practices-areas-list {
+    display: flex;
+}
+
+.faq-page.rules-forms .right-side .practices-areas-list {
+    display: grid;
+    padding-top: 0 !important;
+}
+
+.faq-page.rules-forms .right-side .practices-areas-list .practices-areas-item {
+    display: flex;
+    align-items: center;
+}
+
+.faq-page.rules-forms .right-side .practices-areas-list .practices-areas-item .text {
+    max-width: 100%;
+}
+
+.faq-page.rules-forms .right-side .practices-areas-list .practices-areas-item.arbitration-forms-item .text {
+    display: grid;
+    gap: 4px;
+}
+
+.faq-page.rules-forms .right-side .practices-areas-list .practices-areas-item.arbitration-forms-item .text .date {
+    font-size: 14px;
+    line-height: 25px;
+    opacity: 60%;
+}
+
+.faq-page.rules-forms .right-side .practices-areas-list .practices-areas-item .pdf-files-list {
+    margin-left: auto;
+    max-width: 338px;
+    display: flex;
+    margin-top: 0;
+}
+
+.faq-page.rules-forms .right-side .practices-areas-list .practices-areas-item {
+    border-bottom: 1px solid #2672D31A;
+    padding: 16px 0;
+}
+
+.faq-page.rules-forms .right-side .practices-areas-list .practices-areas-item .pdf-files-list a {
+    display: grid;
+    gap: 6px;
+    text-align: center;
+    border-right: 1px solid #2672D31A;
+    padding: 0 32px;
+    font-size: 14px;
+}
+
+.faq-page.rules-forms .right-side .practices-areas-list .practices-areas-item.arbitration-forms-item .pdf-files-list a  {
+    border-right: 0;
+    padding: 0;
+}
+
+.faq-page.rules-forms .right-side .practices-areas-list .practices-areas-item .pdf-files-list a img {
+    width: 50px;
+    height: 50px;
+}
+
+.faq-page.rules-forms .right-side .practices-areas-list .practices-areas-item.arbitration-forms-item .pdf-files-list a img {
+    width: 24px;
+    height: 24px;
+
+}

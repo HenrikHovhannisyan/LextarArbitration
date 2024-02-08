@@ -1,0 +1,157 @@
+header {
+    width: 100%;
+    height: 94px;
+    margin-top: 24px;
+}
+
+header nav {
+    height: 94px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 24px;
+    background-color: #ffffff;
+    display: flex;
+    align-items: center;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    font-size: 16px;
+    position: relative;
+}
+
+header nav .logo {
+    width: 120px;
+    height: 62px;
+    border-radius: 4px;
+    border: 2px solid var(--secondary-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+header nav .logo img {
+    max-width: 60px;
+    height: 26px;
+}
+
+header nav .navbar {
+    margin-left: 12%;
+}
+
+header nav .navbar ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: 20px;
+}
+
+header nav .navbar ul li a:hover, header nav .nav-right-side .sign-in:hover {
+    color: var(--secondary-color);
+}
+
+header nav ul li.menu_has_dropdown {
+    position: relative;
+}
+
+header nav .navbar ul li.menu_has_dropdown:hover::after{
+    content:'';
+    display:block;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    left:0;
+    right:0;
+    bottom:-12px;
+    z-index: 1;
+    cursor:pointer;
+}
+
+header nav ul li.menu_has_dropdown:hover .header-dropdown {
+    visibility: visible;
+    opacity: 1;
+    display: block;
+}
+
+header nav ul li .header-dropdown {
+    visibility: hidden;
+    position: absolute;
+    top: 138%;
+    right: 0;
+    background-color: white;
+    width: 300px;
+    z-index: 1;
+    margin-top: 12px;
+    line-height: 0.6;
+    transition: all 500ms ease;/*added*/
+    opacity: 0;/*added*/
+    box-shadow: 0px 0px 7px 0px #84848429;
+}
+
+header nav ul li .header-dropdown.sign-in-dropdown {
+    width: 250px;
+}
+
+header nav ul li .header-dropdown.languages-dropdown {
+    width: 150px;
+}
+
+header nav ul li .header-dropdown .header-dropdown-menu {
+    display: flex;
+    flex-direction: column;
+    padding: 8px;
+    gap: 0;
+    list-style: none;
+}
+
+header nav ul li .header-dropdown .header-dropdown-menu li {
+    font-size: 16px;
+    line-height: 29px;
+    padding: 12px 20px;
+}
+
+header nav ul li .header-dropdown .header-dropdown-menu li a {
+    width: 100%;
+    display: block;
+}
+
+header nav ul li .header-dropdown .header-dropdown-menu li:hover {
+    border-radius: 4px;
+    background-color: #EBF2FA;
+}
+
+header nav .nav-right-side {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    list-style: none;
+}
+
+header nav .nav-right-side .languages {
+    cursor: pointer;
+    background: url("../../images/dropdown-arrow.png") no-repeat right;
+    padding-right: 15px;
+}
+
+header nav .nav-right-side .sign-in {
+    margin-left: 24px;
+}
+
+header nav .nav-right-side .sign-in::before {
+    border: 1px solid #171A1E1A;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    content: "";
+    width: 1px;
+    height: 32px;
+}
+
+header nav .nav-right-side .file-case-btn {
+    width: 140px;
+    height: 45px;
+    font-size: 16px;
+    line-height: 29px;
+}

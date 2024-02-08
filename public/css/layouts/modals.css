@@ -1,0 +1,50 @@
+.success-modal .modal-dialog {
+    max-width: 1000px;
+    border: none !important;
+}
+
+.success-modal .modal-content {
+    border-radius: 20px !important;
+}
+
+.success-modal .modal-header {
+    border: none !important;
+    margin-left: auto;
+}
+
+.success-modal .modal-header {
+    border: none !important;
+    margin-left: auto;
+}
+
+.success-modal .modal-header button {
+    background: transparent !important;
+    border: none !important;
+}
+
+.success-modal .modal-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0 24px 60px 24px;
+}
+
+.success-modal .modal-body .modal-body-text {
+    display: grid;
+    gap: 16px;
+    max-width: 650px;
+    margin: 32px auto 40px;
+    text-align: center;
+}
+
+.success-modal .modal-body .modal-body-buttons {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
+
+.success-modal .modal-body .modal-body-buttons button {
+    width: 180px;
+    height: 56px;
+}

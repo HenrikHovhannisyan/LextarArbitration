@@ -1,0 +1,81 @@
+.sign-in .sign-in-form .title {
+    margin-bottom: 12px;
+}
+
+.sign-in .sign-in-form .form-item.password,
+.sign-in .forgot-pass-form .form-item.password {
+    position: relative;
+    height: 45px;
+    border-radius: 4px;
+    border: 1px solid #2672D333;
+    font-size: 16px;
+    line-height: 29px;
+}
+
+.sign-in .sign-in-form .form-item.password input,
+.sign-in .forgot-pass-form .form-item.password input {
+    border: none;
+    padding: 8px 12px;
+}
+
+.sign-in .sign-in-form .form-item.password .show-pass,
+.sign-in .forgot-pass-form .form-item.password .show-pass {
+    position: absolute;
+    right: 1%;
+    top: 10%;
+    bottom: 0;
+    background: transparent;
+    border: none;
+}
+
+
+.sign-in .sign-in-form .form-item.password .show-pass img,
+.sign-in .forgot-pass-form .form-item.password .show-pass img {
+    width: 24px;
+    height: 24px;
+}
+
+.sign-in .sign-in-form .forget-pass {
+    color: var(--secondary-color);
+    margin: -11px 0 12px auto;
+}
+
+.sign-in-form.validation .form-item input,
+.sign-in .forgot-pass-form.validation .form-item.password,
+.sign-in .sign-in-form.validation .form-item.password {
+    border: 1px solid #EF0000;
+}
+
+.sign-in-form.validation .form-item span {
+    display: block;
+}
+
+.sign-in-form .form-item span {
+    display: none;
+    font-size: 14px;
+    color: #EF0000;
+    margin-top: 8px;
+}
+
+.payment-info.forgot-pass .forgot-pass-form.validation {
+    gap: 50px;
+}
+
+.sign-in .forgot-pass-form .form-item.password {
+    position: relative;
+    height: 48px;
+}
+
+.forgot-pass .forgot-pass-form.validation .form-item span {
+    display: block;
+    margin-top: -6px;
+}
+
+.forgot-pass-form .pass-requirements {
+    background-color: #EEF4FB;
+    padding: 12px;
+    display: grid;
+    gap: 8px;
+    font-size: 16px;
+    line-height: 29px;
+}

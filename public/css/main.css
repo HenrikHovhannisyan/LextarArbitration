@@ -1,0 +1,43 @@
+@import "style.css";
+
+/*fonts css*/
+@import "fonts.css";
+
+/*header*/
+@import "layouts/header.css";
+
+/*footer*/
+@import "layouts/footer.css";
+
+/*home main*/
+@import "home-main/home.css";
+
+/*pages- contact us*/
+@import "pages/contact-us.css";
+
+/*pages- about us*/
+@import "pages/about-us.css";
+
+/*pages- faq*/
+@import "pages/faq.css";
+
+/*pages- practices-areas*/
+@import "pages/practices-areas.css";
+
+/*pages- rules & forms*/
+@import "pages/rules-forms.css";
+
+/*pages- file a case*/
+@import "pages/file-case.css";
+
+/*pages- sign in*/
+@import "pages/sign-in.css";
+
+/*responsive*/
+@import "responsive.css";
+
+/* bootstrap css */
+@import "plugins/bootstrap.min.css";
+
+/*modals*/
+@import "layouts/modals.css";

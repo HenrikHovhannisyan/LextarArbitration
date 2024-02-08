@@ -1,0 +1,38 @@
+.faq-page.practices-areas .section-title {
+    margin-bottom: 80px;
+}
+
+.faq-page.practices-areas .section-title .paragraph {
+    max-width: 930px;
+    margin: 0 auto;
+}
+
+.faq-page.practices-areas .faq-content .left-side {
+    max-width: 306px;
+    width: 100%;
+}
+
+.faq-page.practices-areas .faq-content .right-side .right-side-header {
+    border-bottom: 1px solid #2672D31A;
+    padding-bottom: 16px;
+}
+
+.faq-page.practices-areas .faq-content .right-side .right-side-header h3 {
+    font-size: 24px;
+    line-height: 43px;
+    margin: 0;
+}
+
+.faq-page.practices-areas .faq-content .right-side .right-side-header span {
+    font-size: 18px;
+    line-height: 32px;
+    opacity: 80%;
+}
+
+.faq-page.practices-areas .faq-content .right-side .practices-areas-list {
+    padding-top: 24px;
+    display: grid;
+    gap: 15px;
+    font-size: 18px;
+    line-height: 32px;
+}
