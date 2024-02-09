@@ -175,11 +175,11 @@
                             </div>
                         </div>
                         <div class="buttons-part">
-                            <a href="faq.html"><button class="secondary arrow">View all</button></a>
+                            <a href="{{route('faq')}}"><button class="secondary arrow">View all</button></a>
                         </div>
                     </div>
                     <div class="image-part">
-                        <img src="images/faq-image.png" alt="faq main image">
+                        <img src="{{asset('images/faq-image.png')}}" alt="faq main image">
                     </div>
                 </div>
             </div>
