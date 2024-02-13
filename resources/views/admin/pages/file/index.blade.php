@@ -29,6 +29,7 @@
                             <tr>
                                 <th>Name</th>
                                 <th>File</th>
+                                <th>Show</th>
                                 <th>Action</th>
                             </tr>
                             </thead>
@@ -39,6 +40,19 @@
                                     <td>
                                         <a href="{{asset($file->file)}}" class="btn btn-outline-dark" target="_blank">Open
                                             File</a>
+                                    </td>
+                                    <td>
+                                        <div class="row">
+                                            <div class="col">
+                                                <select class="form-control">
+                                                    <option class="text-success">Yes</option>
+                                                    <option class="text-danger">No</option>
+                                                </select>
+                                            </div>
+                                            <div class="col">
+                                                <button class="btn btn-success">Ok</button>
+                                            </div>
+                                        </div>
                                     </td>
                                     <td>
                                         <form action="{{ route('files.destroy',$file->id) }}" method="POST">
@@ -60,6 +74,7 @@
                             <tr>
                                 <th>Name</th>
                                 <th>File</th>
+                                <th>Show</th>
                                 <th>Action</th>
                             </tr>
                             </tfoot>
