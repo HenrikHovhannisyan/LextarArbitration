@@ -29,18 +29,62 @@
                 <div class="row">
                     <div class="col-lg-12 mt-3">
                         <h1>Edit File</h1>
-                        <form method="POST" action="{{ route('files.update', $file->id) }}" enctype="multipart/form-data">
+                        <form method="POST" action="{{ route('files.update', $file->id) }}"
+                              enctype="multipart/form-data">
                             @csrf
                             @method('PUT')
                             <div class="row align-items-center">
                                 <div class="col-12 col-md-6 mt-3">
                                     <label for="name">Name:</label>
-                                    <input type="text" class="form-control" id="name" name="name" value="{{ $file->name }}" required>
+                                    <input type="text" class="form-control" id="name" name="name"
+                                           value="{{ $file->name }}" required>
                                 </div>
                                 <div class="col-12 col-md-6 mt-3">
-                                    <label for="file">File:</label><br>
-                                    <input type="file" class="form-control-file" id="file" name="file">
-                                    <a href="{{asset($file->file)}}" class="btn btn-outline-dark" target="_blank">Open File</a>
+                                    <label for="show">Show:</label>
+                                    <select class="form-control" id="show" name="show">
+                                        <option value="1" @if($file->show === 1)
+                                        selected
+                                            @endif
+                                        >Yes
+                                        </option>
+                                        <option value="0" @if($file->show === 0)
+                                        selected
+                                            @endif
+                                        >No
+                                        </option>
+                                    </select>
+                                </div>
+
+                                <h3>Files</h3>
+                                <hr>
+                                <div class="row">
+                                    <div class="col-12 col-md-4 mt-3">
+                                        <label for="rules">Rules:</label><br>
+                                        <input type="file" class="form-control-file" id="rules" name="rules">
+                                        <br>
+                                        <a href="{{asset($file->rules)}}" class="btn btn-outline-dark mt-3"
+                                           target="_blank">
+                                            Open Rules
+                                        </a>
+                                    </div>
+                                    <div class="col-12 col-md-4 mt-3">
+                                        <label for="forms">Forms:</label><br>
+                                        <input type="file" class="form-control-file" id="forms" name="forms">
+                                        <br>
+                                        <a href="{{asset($file->forms)}}" class="btn btn-outline-dark mt-3"
+                                           target="_blank">
+                                            Open Forms
+                                        </a>
+                                    </div>
+                                    <div class="col-12 col-md-4 mt-3">
+                                        <label for="fees">Fees:</label><br>
+                                        <input type="file" class="form-control-file" id="fees" name="fees">
+                                        <br>
+                                        <a href="{{asset($file->fees)}}" class="btn btn-outline-dark mt-3"
+                                           target="_blank">
+                                            Open Fees
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
                             <button type="submit" class="btn btn-primary mt-3">

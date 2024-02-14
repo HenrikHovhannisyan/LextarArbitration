@@ -27,7 +27,7 @@
                         <div class="bg-success border border-dark rounded p-3 text-center shadow">
                             <i class="fa-solid fa-file-pdf fa-3x text-white fa-beat-fade"></i>
                             <h4 class="text-white mt-3 mb-3">
-                                Files - <span>{{$fileCount}}</span>
+                                Rules & Forms - <span>{{$fileCount}}</span>
                             </h4>
                             <a href="{{ route('files.index') }}" class="btn btn-light">Go</a>
                         </div>

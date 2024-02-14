@@ -44,17 +44,35 @@ class FileController extends Controller
     {
         $request->validate([
             'name' => 'required',
-            'file' => 'required|file|mimes:pdf|max:2048',
+            'rules' => 'nullable|file|mimes:pdf|max:2048',
+            'forms' => 'nullable|file|mimes:pdf|max:2048',
+            'fees' => 'nullable|file|mimes:pdf|max:2048',
         ]);
 
-        $input = $request->all();
+        $input = $request->except('_token');
 
-        if ($request->hasFile('file')) {
-            $file = $request->file('file');
-            $destinationPath = 'pdf/files/';
+        if ($request->hasFile('rules')) {
+            $file = $request->file('rules');
+            $destinationPath = 'pdf/rules/';
             $fileName = date('YmdHis') . '_' . Str::random(5) . "." . $file->getClientOriginalExtension();
             $file->move($destinationPath, $fileName);
-            $input['file'] = $destinationPath . $fileName;
+            $input['rules'] = $destinationPath . $fileName;
+        }
+
+        if ($request->hasFile('forms')) {
+            $forms = $request->file('forms');
+            $destinationPath = 'pdf/forms/';
+            $fileName = date('YmdHis') . '_' . Str::random(5) . "." . $forms->getClientOriginalExtension();
+            $forms->move($destinationPath, $fileName);
+            $input['forms'] = $destinationPath . $fileName;
+        }
+
+        if ($request->hasFile('fees')) {
+            $fees = $request->file('fees');
+            $destinationPath = 'pdf/fees/';
+            $fileName = date('YmdHis') . '_' . Str::random(5) . "." . $fees->getClientOriginalExtension();
+            $fees->move($destinationPath, $fileName);
+            $input['fees'] = $destinationPath . $fileName;
         }
 
         File::create($input);
@@ -95,21 +113,49 @@ class FileController extends Controller
     {
         $request->validate([
             'name' => 'required',
-            'file' => 'nullable|file|mimes:pdf|max:2048',
+            'rules' => 'nullable|file|mimes:pdf|max:2048',
+            'forms' => 'nullable|file|mimes:pdf|max:2048',
+            'fees' => 'nullable|file|mimes:pdf|max:2048',
         ]);
 
-        $input = $request->all();
+        $input = $request->except(['_method', '_token']);
 
-        if ($request->hasFile('file')) {
-            $fileUpload = $request->file('file');
-            $destinationPath = 'pdf/files/';
+        if ($request->hasFile('rules')) {
+            $fileUpload = $request->file('rules');
+            $destinationPath = 'pdf/rules/';
             $fileName = date('YmdHis') . '_' . Str::random(5) . "." . $fileUpload->getClientOriginalExtension();
             $fileUpload->move($destinationPath, $fileName);
-            $input['file'] = $destinationPath . $fileName;
+            $input['rules'] = $destinationPath . $fileName;
 
             // Delete the old file if it exists
-            if ($file->file && file_exists(public_path($file->file))) {
-                unlink(public_path($file->file));
+            if ($file->rules && file_exists(public_path($file->rules))) {
+                unlink(public_path($file->rules));
+            }
+        }
+
+        if ($request->hasFile('forms')) {
+            $formsUpload = $request->file('forms');
+            $destinationPath = 'pdf/forms/';
+            $fileName = date('YmdHis') . '_' . Str::random(5) . "." . $formsUpload->getClientOriginalExtension();
+            $formsUpload->move($destinationPath, $fileName);
+            $input['forms'] = $destinationPath . $fileName;
+
+            // Delete the old file if it exists
+            if ($file->forms && file_exists(public_path($file->forms))) {
+                unlink(public_path($file->forms));
+            }
+        }
+
+        if ($request->hasFile('fees')) {
+            $feesUpload = $request->file('fees');
+            $destinationPath = 'pdf/fees/';
+            $fileName = date('YmdHis') . '_' . Str::random(5) . "." . $feesUpload->getClientOriginalExtension();
+            $feesUpload->move($destinationPath, $fileName);
+            $input['fees'] = $destinationPath . $fileName;
+
+            // Delete the old file if it exists
+            if ($file->fees && file_exists(public_path($file->fees))) {
+                unlink(public_path($file->fees));
             }
         }
 
@@ -127,8 +173,14 @@ class FileController extends Controller
      */
     public function destroy(File $file)
     {
-        if ($file->file && file_exists(public_path($file->file))) {
-            unlink(public_path($file->file));
+        if ($file->rules && file_exists(public_path($file->rules))) {
+            unlink(public_path($file->rules));
+        }
+        if ($file->forms && file_exists(public_path($file->forms))) {
+            unlink(public_path($file->forms));
+        }
+        if ($file->fees && file_exists(public_path($file->fees))) {
+            unlink(public_path($file->fees));
         }
         $file->delete();
         return redirect()->route('files.index')->with('success', 'File deleted successfully.');

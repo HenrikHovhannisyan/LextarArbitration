@@ -19,7 +19,7 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-12 mt-3">
-                        <h1>Files</h1>
+                        <h1>Rules & Forms</h1>
                         <a href="{{ route('files.create') }}" class="btn btn-outline-primary mb-3">
                             <i class="fa-solid fa-plus"></i>
                             Add File
@@ -28,8 +28,10 @@
                             <thead>
                             <tr>
                                 <th>Name</th>
-                                <th>File</th>
                                 <th>Show</th>
+                                <th>Rules</th>
+                                <th>Forms</th>
+                                <th>Fees</th>
                                 <th>Action</th>
                             </tr>
                             </thead>
@@ -38,21 +40,26 @@
                                 <tr>
                                     <td>{{ $file->name }}</td>
                                     <td>
-                                        <a href="{{asset($file->file)}}" class="btn btn-outline-dark" target="_blank">Open
-                                            File</a>
+                                        @if($file->show)
+                                            <span class="text-success"><b>Yes</b></span>
+                                        @else
+                                            <span class="text-danger"><b>No</b></span>
+                                        @endif
                                     </td>
                                     <td>
-                                        <div class="row">
-                                            <div class="col">
-                                                <select class="form-control">
-                                                    <option class="text-success">Yes</option>
-                                                    <option class="text-danger">No</option>
-                                                </select>
-                                            </div>
-                                            <div class="col">
-                                                <button class="btn btn-success">Ok</button>
-                                            </div>
-                                        </div>
+                                        <a href="{{asset($file->rules)}}" class="btn btn-outline-dark" target="_blank">
+                                            Open Rules
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <a href="{{asset($file->forms)}}" class="btn btn-outline-dark" target="_blank">
+                                            Open Forms
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <a href="{{asset($file->fees)}}" class="btn btn-outline-dark" target="_blank">
+                                            Open Fees
+                                        </a>
                                     </td>
                                     <td>
                                         <form action="{{ route('files.destroy',$file->id) }}" method="POST">
@@ -73,8 +80,10 @@
                             <tfoot>
                             <tr>
                                 <th>Name</th>
-                                <th>File</th>
                                 <th>Show</th>
+                                <th>Rules</th>
+                                <th>Forms</th>
+                                <th>Fees</th>
                                 <th>Action</th>
                             </tr>
                             </tfoot>

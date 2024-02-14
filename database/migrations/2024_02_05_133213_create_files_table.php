@@ -16,7 +16,10 @@ return new class extends Migration
         Schema::create('files', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('file');
+            $table->string('rules');
+            $table->string('forms');
+            $table->string('fees');
+            $table->boolean('show')->default(1);
             $table->timestamps();
         });
     }
