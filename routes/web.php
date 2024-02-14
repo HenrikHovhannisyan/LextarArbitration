@@ -28,4 +28,5 @@ Auth::routes();
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/faq', [HomeController::class, 'faq'])->name('faq');
+Route::get('/rules-forms', [HomeController::class, 'rulesForms'])->name('rules-forms');
 

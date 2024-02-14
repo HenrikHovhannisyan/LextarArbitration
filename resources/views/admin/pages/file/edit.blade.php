@@ -28,7 +28,7 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-12 mt-3">
-                        <h1>Edit File</h1>
+                        <h1>Edit Rules & Forms</h1>
                         <form method="POST" action="{{ route('files.update', $file->id) }}"
                               enctype="multipart/form-data">
                             @csrf

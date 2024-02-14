@@ -49,7 +49,7 @@
                                 </div>
                             </div>
                         </li>
-                        <li><a href="rules-forms.html">Rules & Forms</a></li>
+                        <li><a href="{{route('rules-forms')}}">Rules & Forms</a></li>
                         <li><a href="contact-us.html">Contact</a></li>
                     </ul>
                 </div>
