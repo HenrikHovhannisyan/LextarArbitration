@@ -132,6 +132,6 @@ class RulesController extends Controller
         }
 
         $rule->delete();
-        return redirect()->route('rules.index')->with('success', 'Rule deleted successfully.');
+        return redirect()->route('rules.index')->with('success', 'File deleted successfully.');
     }
 }

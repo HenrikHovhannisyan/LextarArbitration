@@ -23,5 +23,11 @@
                 <span class="ms-1">Rules</span>
             </a>
         </li>
+        <li>
+            <a href="{{ route('forms.index') }}" class="{{ isActiveRoute('forms.index') }}">
+                <i class="fa-solid fa-file-pdf"></i>
+                <span class="ms-1">Forms</span>
+            </a>
+        </li>
     </ul>
 </div>

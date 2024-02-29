@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\File;
+use App\Models\Form;
+use App\Models\Rule;
 use App\Models\User;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
@@ -25,7 +26,8 @@ class AdminController extends Controller
     public function home()
     {
         $userCount = count(User::all());
-        $fileCount = count(File::all());
-        return view('admin.home', compact('userCount', 'fileCount'));
+        $rulesCount = count(Rule::all());
+        $formsCount = count(Form::all());
+        return view('admin.home', compact('userCount', 'rulesCount', 'formsCount'));
     }
 }
