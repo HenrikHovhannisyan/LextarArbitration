@@ -18,5 +18,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('rules-forms', 'App\Http\Controllers\HomeController@rulesFormsApi');
+Route::get('rules', 'App\Http\Controllers\HomeController@rulesApi');
+Route::get('forms', 'App\Http\Controllers\HomeController@formsApi');
 
