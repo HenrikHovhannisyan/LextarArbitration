@@ -18,9 +18,9 @@
             </a>
         </li>
         <li>
-            <a href="{{ route('files.index') }}" class="{{ isActiveRoute('files.index') }}">
+            <a href="{{ route('rules.index') }}" class="{{ isActiveRoute('rules.index') }}">
                 <i class="fa-solid fa-file-pdf"></i>
-                <span class="ms-1">Rules & Forms</span>
+                <span class="ms-1">Rules</span>
             </a>
         </li>
     </ul>

@@ -13,12 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('files', function (Blueprint $table) {
+        Schema::create('rules', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('rules');
-            $table->string('forms');
-            $table->string('fees');
+            $table->string('file');
             $table->boolean('show')->default(1);
             $table->timestamps();
         });

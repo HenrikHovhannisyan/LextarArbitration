@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\File;
+use App\Models\Form;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
@@ -11,7 +11,7 @@ use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
-class FileController extends Controller
+class FormsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -20,7 +20,7 @@ class FileController extends Controller
      */
     public function index()
     {
-        $files = File::all();
+        $files = Form::all();
         return view('admin.pages.file.index', compact('files'));
     }
 
@@ -75,7 +75,7 @@ class FileController extends Controller
             $input['fees'] = $destinationPath . $fileName;
         }
 
-        File::create($input);
+        Form::create($input);
 
         return redirect()->route('files.index')->with('success', 'File created successfully.');
     }

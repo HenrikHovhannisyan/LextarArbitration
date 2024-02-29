@@ -19,8 +19,8 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-12 mt-3">
-                        <h1>Rules & Forms</h1>
-                        <a href="{{ route('files.create') }}" class="btn btn-outline-primary mb-3">
+                        <h1>Rules</h1>
+                        <a href="{{ route('rules.create') }}" class="btn btn-outline-primary mb-3">
                             <i class="fa-solid fa-plus"></i>
                             Add File
                         </a>
@@ -29,14 +29,12 @@
                             <tr>
                                 <th>Name</th>
                                 <th>Show</th>
-                                <th>Rules</th>
-                                <th>Forms</th>
-                                <th>Fees</th>
+                                <th>File</th>
                                 <th>Action</th>
                             </tr>
                             </thead>
                             <tbody>
-                            @foreach($files as $file)
+                            @foreach($rules as $file)
                                 <tr>
                                     <td>{{ $file->name }}</td>
                                     <td>
@@ -47,24 +45,14 @@
                                         @endif
                                     </td>
                                     <td>
-                                        <a href="{{asset($file->rules)}}" class="btn btn-outline-dark" target="_blank">
-                                            Open Rules
+                                        <a href="{{asset($file->file)}}" class="btn btn-outline-dark" target="_blank">
+                                            Open File
                                         </a>
                                     </td>
                                     <td>
-                                        <a href="{{asset($file->forms)}}" class="btn btn-outline-dark" target="_blank">
-                                            Open Forms
-                                        </a>
-                                    </td>
-                                    <td>
-                                        <a href="{{asset($file->fees)}}" class="btn btn-outline-dark" target="_blank">
-                                            Open Fees
-                                        </a>
-                                    </td>
-                                    <td>
-                                        <form action="{{ route('files.destroy',$file->id) }}" method="POST">
+                                        <form action="{{ route('rules.destroy',$file->id) }}" method="POST">
                                             <a class="btn btn-outline-primary"
-                                               href="{{ route('files.edit',$file->id) }}">
+                                               href="{{ route('rules.edit',$file->id) }}">
                                                 <i class="fa-solid fa-pen-to-square"></i>
                                             </a>
                                             @csrf
@@ -81,9 +69,7 @@
                             <tr>
                                 <th>Name</th>
                                 <th>Show</th>
-                                <th>Rules</th>
-                                <th>Forms</th>
-                                <th>Fees</th>
+                                <th>File</th>
                                 <th>Action</th>
                             </tr>
                             </tfoot>

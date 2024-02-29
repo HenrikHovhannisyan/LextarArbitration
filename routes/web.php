@@ -1,8 +1,9 @@
 <?php
 
 use App\Http\Controllers\AdminController;
-use App\Http\Controllers\FileController;
+use App\Http\Controllers\FormsController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\RulesController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -21,7 +22,8 @@ use Illuminate\Support\Facades\Route;
 Route::middleware(['auth', 'is_admin'])->prefix('admin')->group(function () {
     Route::get('/', [AdminController::class, 'home'])->name('admin.home');
     Route::resource('users', UserController::class);
-    Route::resource('files', FileController::class);
+    Route::resource('rules', RulesController::class);
+    Route::resource('forms', FormsController::class);
 });
 
 Auth::routes();
