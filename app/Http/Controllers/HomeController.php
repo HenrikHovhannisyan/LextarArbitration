@@ -33,6 +33,7 @@ class HomeController extends Controller
                 $pdf[] = [
                     'name' => $file->name,
                     'file' => asset($file->file),
+                    'date' => substr($file->updated_at, 0, 10),
                 ];
             }
 
@@ -65,6 +66,7 @@ class HomeController extends Controller
                 $pdf[] = [
                     'name' => $file->name,
                     'file' => asset($file->file),
+                    'date' => substr($file->updated_at, 0, 10),
                 ];
             }
 
