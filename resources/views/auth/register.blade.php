@@ -28,6 +28,15 @@
                             <div class="form-group">
                                 <input type="email" name="email" class="form-control" placeholder="Email *" required>
                             </div>
+                            <div class="form-check agree">
+                                <input type="checkbox" name="agree" class="form-check-input" id="agree">
+                                <label class="form-check-label" for="agree">
+                                    I agree to the “Company”’s
+                                    <a href="#">Terms Of Use</a>
+                                    and
+                                    <a href="#">Privacy Policy</a>.
+                                </label>
+                            </div>
                             <button type="button" class="btn btn-primary" onclick="nextStep(1)">Next Step</button>
                         </div>
                         <!-- Step 2 -->
@@ -68,6 +77,13 @@
                             <div class="form-group">
                                 <input type="text" name="fax" class="form-control" placeholder="Fax">
                             </div>
+                            <div class="form-check authorize">
+                                <input type="checkbox" name="authorize" class="form-check-input" id="authorize">
+                                <label class="form-check-label" for="authorize">
+                                    I authorize “Company” to use the information I have provided in this form <br>
+                                    for purposes of marketing communications .
+                                </label>
+                            </div>
                             <div class="sign_up_btn_container">
                                 <button type="button" class="btn btn-secondary" onclick="prevStep(2)">
                                     <i class="fa-solid fa-arrow-left-long"></i>
@@ -84,7 +100,8 @@
                             </div>
                             <div class="form-group">
                                 <div class="position-relative">
-                                    <input type="password" id="password" name="password" class="form-control" placeholder="Password *" required>
+                                    <input type="password" id="password" name="password" class="form-control"
+                                           placeholder="Password *" required>
                                     <button type="button" class="sign_up_btn_eye" id="showPassword">
                                         <i class="fa-regular fa-eye"></i>
                                     </button>
@@ -95,7 +112,8 @@
                             </div>
                             <div class="form-group">
                                 <div class="position-relative">
-                                    <input type="password" id="confirm_password" name="confirm_password" class="form-control" placeholder="Confirm Password *" required>
+                                    <input type="password" id="confirm_password" name="confirm_password"
+                                           class="form-control" placeholder="Confirm Password *" required>
                                     <button type="button" class="sign_up_btn_eye" id="showConfirmPassword">
                                         <i class="fa-regular fa-eye"></i>
                                     </button>
