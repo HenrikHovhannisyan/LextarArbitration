@@ -272,7 +272,7 @@ button.arrow:hover {
     font-size: 16px;
     font-weight: 400;
     line-height: 24px;
-    letter-spacing: 0em;
+    letter-spacing: 0;
     text-align: left;
     color: #171A1ECC;
     margin-bottom: 32px;
@@ -281,4 +281,46 @@ button.arrow:hover {
 .authorize a,
 .agree a {
     color: #2672D3;
+}
+
+.steps {
+    margin: 40px auto;
+}
+
+.step_item_circle {
+    border: 1px solid #2672D3;
+    border-radius: 50%;
+    font-family: PT Serif, serif;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 36px;
+    letter-spacing: 0;
+    text-align: center;
+    color: #171A1E;
+    margin: 0 auto 10px;
+    display: block;
+    width: 40px;
+    height: 40px;
+}
+
+.step_item_circle.active {
+    background-color: #2672D3;
+    color: #ffffff;
+}
+
+.step_item_title {
+    font-family: PT Serif, serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 25px;
+    letter-spacing: 0;
+    text-align: center;
+    color: #171A1E;
+}
+
+.steps_line {
+    border: 2px solid #2672D31A;
+    width: 100%;
+    max-width: 100px;
+    margin: 19px auto 0;
 }

@@ -57,12 +57,18 @@ let currentStep = 1;
 const form = document.getElementById("multiStepForm");
 
 function nextStep(step) {
+    document.getElementById(`step_item_circle-${step}`).classList.remove('active');
+    document.getElementById(`step_item_circle-${step + 1}`).classList.add('active');
+
     document.getElementById(`step${step}`).classList.add('d-none');
     document.getElementById(`step${step + 1}`).classList.remove('d-none');
     currentStep = step + 1;
 }
 
 function prevStep(step) {
+    document.getElementById(`step_item_circle-${step}`).classList.remove('active');
+    document.getElementById(`step_item_circle-${step - 1}`).classList.add('active');
+
     document.getElementById(`step${step}`).classList.add('d-none');
     document.getElementById(`step${step - 1}`).classList.remove('d-none');
     currentStep = step - 1;
