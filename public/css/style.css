@@ -17,7 +17,7 @@ html, body {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
-    color: var( --primary-color);
+    color: var(--primary-color);
     background-color: #F8FAFD;
 }
 
@@ -30,7 +30,7 @@ html, body {
 }
 
 a {
-    color: var( --primary-color);
+    color: var(--primary-color);
     text-decoration: none !important;
     transition: .5s ease;
 }
@@ -158,4 +158,110 @@ button.arrow:hover {
 .paragraph a {
     text-decoration: underline !important;
     color: var(--secondary-color);
+}
+
+.registration_title {
+    font-family: PT Serif, serif;
+    font-size: 40px;
+    font-weight: 400;
+    line-height: 56px;
+    letter-spacing: 0.02em;
+    text-align: center;
+    color: #171A1E;
+}
+
+.have_account {
+    font-family: PT Serif, serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 29px;
+    letter-spacing: 0.02em;
+    text-align: center;
+    color: #171A1ECC;
+}
+
+.have_account > a {
+    color: #2672D3;
+    text-decoration: underline !important;
+}
+
+#multiStepForm {
+    margin: 60px auto;
+}
+
+.sign_up_form_title {
+    font-family: PT Serif, serif;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 36px;
+    letter-spacing: 0;
+    text-align: left;
+    color: #171A1E;
+    border-bottom: 1px solid #2672D31A;
+    margin-bottom: 25px;
+    padding-bottom: 10px;
+}
+
+.sign_up_form .form-control {
+    border: 1px solid #2672D333;
+    border-radius: 4px;
+    padding: 8px 12px;
+    margin-bottom: 20px;
+}
+
+.sign_up_form .btn-primary {
+    border-radius: 4px;
+    padding: 10px 24px;
+    background: #2672D3;
+    font-family: PT Serif, serif;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 32px;
+    letter-spacing: 0;
+    text-align: center;
+    color: #FFFFFF;
+    width: 100%;
+}
+
+.sign_up_form .btn-secondary {
+    border-radius: 4px;
+    padding: 12px;
+    border: 1px solid #2672D3;
+    background: #ffffff;
+    font-family: PT Serif, serif;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 32px;
+    letter-spacing: 0;
+    text-align: center;
+    color: #2672D3;
+    width: 120px;
+}
+
+.sign_up_btn_container {
+    display: flex;
+    gap: 10px;
+}
+
+.sign_up_btn_eye {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    background-color: transparent;
+    border: none;
+    color: #484A4D!important;
+}
+
+.password_info {
+    border-radius: 4px;
+    background: #EEF4FB;
+    padding: 12px;
+    font-family: PT Serif, serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 29px;
+    letter-spacing: 0;
+    text-align: left;
+    color: #171A1EE5;
+    margin-bottom: 32px;
 }
