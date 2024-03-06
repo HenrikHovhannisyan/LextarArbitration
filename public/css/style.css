@@ -324,3 +324,8 @@ button.arrow:hover {
     max-width: 100px;
     margin: 19px auto 0;
 }
+
+.form-group .text-danger {
+    position: relative;
+    top: -15px;
+}
