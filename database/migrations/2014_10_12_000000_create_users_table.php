@@ -21,6 +21,17 @@ return new class extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->boolean('is_admin')->default(0);
             $table->string('password');
+
+            $table->string('first_name');
+            $table->string('last_name');
+            $table->boolean('agree');
+            $table->string('country');
+            $table->string('address');
+            $table->string('state');
+            $table->string('city');
+            $table->string('zip');
+            $table->string('fax')->nullable();
+            $table->boolean('authorize');
             $table->rememberToken();
             $table->timestamps();
         });

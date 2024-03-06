@@ -14,19 +14,29 @@
                     <a href="{{route('login')}}">Sign in</a>.
                 </p>
                 <div class="sign_up_form">
-                    <form id="multiStepForm">
+                    <form id="multiStepForm" method="POST" action="{{ route('register') }}">
+                    @csrf
                         <!-- Step 1 -->
                         <div class="form-step" id="step1">
                             <div class="form-group">
                                 <input type="text" name="first_name" class="form-control" placeholder="First Name *"
                                        required>
+                                @error('first_name')
+                                <span class="text-danger">{{ $message }}</span>
+                                @enderror
                             </div>
                             <div class="form-group">
                                 <input type="text" name="last_name" class="form-control" placeholder="Last Name *"
                                        required>
+                                @error('last_name')
+                                <span class="text-danger">{{ $message }}</span>
+                                @enderror
                             </div>
                             <div class="form-group">
                                 <input type="email" name="email" class="form-control" placeholder="Email *" required>
+                                @error('email')
+                                <span class="text-danger">{{ $message }}</span>
+                                @enderror
                             </div>
                             <div class="form-check agree">
                                 <input type="checkbox" name="agree" class="form-check-input" id="agree">
@@ -46,25 +56,40 @@
                             </p>
                             <div class="form-group">
                                 <input type="text" name="country" class="form-control" placeholder="Country *" required>
+                                @error('country')
+                                <span class="text-danger">{{ $message }}</span>
+                                @enderror
                             </div>
                             <div class="form-group">
                                 <input type="text" name="address" class="form-control" placeholder="Address Line 1 *"
                                        required>
+                                @error('address')
+                                <span class="text-danger">{{ $message }}</span>
+                                @enderror
                             </div>
                             <div class="form-group">
                                 <input type="text" name="state" class="form-control" placeholder="Select a State *"
                                        required>
+                                @error('state')
+                                <span class="text-danger">{{ $message }}</span>
+                                @enderror
                             </div>
                             <div class="row">
                                 <div class="col-12 col-md-6">
                                     <div class="form-group">
                                         <input type="text" name="city" class="form-control" placeholder="City" required>
+                                        @error('city')
+                                        <span class="text-danger">{{ $message }}</span>
+                                        @enderror
                                     </div>
                                 </div>
                                 <div class="col-12 col-md-6">
                                     <div class="form-group">
                                         <input type="text" name="zip" class="form-control" placeholder="Zip Code *"
                                                required>
+                                        @error('zip')
+                                        <span class="text-danger">{{ $message }}</span>
+                                        @enderror
                                     </div>
                                 </div>
                             </div>
@@ -73,15 +98,21 @@
                             </p>
                             <div class="form-group">
                                 <input type="text" name="phone" class="form-control" placeholder="Phone *" required>
+                                @error('phone')
+                                <span class="text-danger">{{ $message }}</span>
+                                @enderror
                             </div>
                             <div class="form-group">
                                 <input type="text" name="fax" class="form-control" placeholder="Fax">
+                                @error('fax')
+                                <span class="text-danger">{{ $message }}</span>
+                                @enderror
                             </div>
                             <div class="form-check authorize">
                                 <input type="checkbox" name="authorize" class="form-check-input" id="authorize">
                                 <label class="form-check-label" for="authorize">
                                     I authorize “Company” to use the information I have provided in this form <br>
-                                    for purposes of marketing communications .
+                                    for purposes of marketing communications.
                                 </label>
                             </div>
                             <div class="sign_up_btn_container">
@@ -95,8 +126,10 @@
                         <!-- Step 3 -->
                         <div class="form-step d-none" id="step3">
                             <div class="form-group">
-                                <input type="text" name="username" class="form-control" placeholder="Username *"
-                                       required>
+                                <input type="text" name="name" class="form-control" placeholder="Username *" required>
+                                @error('name')
+                                <span class="text-danger">{{ $message }}</span>
+                                @enderror
                             </div>
                             <div class="form-group">
                                 <div class="position-relative">
@@ -109,10 +142,13 @@
                                         <i class="fa-regular fa-eye-slash"></i>
                                     </button>
                                 </div>
+                                @error('password')
+                                <span class="text-danger">{{ $message }}</span>
+                                @enderror
                             </div>
                             <div class="form-group">
                                 <div class="position-relative">
-                                    <input type="password" id="confirm_password" name="confirm_password"
+                                    <input type="password" id="confirm_password" name="password_confirmation"
                                            class="form-control" placeholder="Confirm Password *" required>
                                     <button type="button" class="sign_up_btn_eye" id="showConfirmPassword">
                                         <i class="fa-regular fa-eye"></i>
@@ -121,6 +157,9 @@
                                         <i class="fa-regular fa-eye-slash"></i>
                                     </button>
                                 </div>
+                                @error('confirm_password')
+                                <span class="text-danger">{{ $message }}</span>
+                                @enderror
                             </div>
                             <div class="password_info">
                                 <p>
@@ -133,8 +172,6 @@
                                     <li>Include at least one special character</li>
                                 </ul>
                             </div>
-
-
                             <div class="sign_up_btn_container">
                                 <button type="button" class="btn btn-secondary" onclick="prevStep(3)">
                                     <i class="fa-solid fa-arrow-left-long"></i>
@@ -150,7 +187,7 @@
     </div>
 
 
-    {{--<div class="container">
+{{--    <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">

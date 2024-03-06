@@ -53,7 +53,24 @@ class RegisterController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'phone' => ['required', 'min:11', 'numeric', 'unique:users'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'password' => [
+                'required',
+                'string',
+                'min:8',
+                'confirmed',
+                'regex:/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*(_|[^\w])).+$/'
+            ],
+            // Additional fields validation
+            'first_name' => ['required', 'string', 'max:255'],
+            'last_name' => ['required', 'string', 'max:255'],
+            'agree' => ['boolean'],
+            'country' => ['required', 'string', 'max:255'],
+            'address' => ['required', 'string', 'max:255'],
+            'state' => ['required', 'string', 'max:255'],
+            'city' => ['required', 'string', 'max:255'],
+            'zip' => ['required', 'string', 'max:255'],
+            'fax' => ['nullable', 'string', 'max:255'],
+            'authorize' => ['boolean'],
         ]);
     }
 
@@ -65,11 +82,24 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        $agree = isset($data['agree']) ? $data['agree'] : false;
+        $authorize = isset($data['authorize']) ? $data['authorize'] : false;
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'phone' => $data['phone'],
             'password' => Hash::make($data['password']),
+            // Additional fields
+            'first_name' => $data['first_name'],
+            'last_name' => $data['last_name'],
+            'agree' => $agree,
+            'country' => $data['country'],
+            'address' => $data['address'],
+            'state' => $data['state'],
+            'city' => $data['city'],
+            'zip' => $data['zip'],
+            'fax' => $data['fax'],
+            'authorize' => $authorize,
         ]);
     }
 }
