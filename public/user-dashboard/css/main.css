@@ -1,0 +1,19 @@
+@import "style.css";
+
+/*fonts css*/
+@import "fonts.css";
+
+/*aside*/
+@import "layouts/aside.css";
+
+/*Upload modal*/
+@import "layouts/uploadModal.css";
+
+/*pages - my cases*/
+@import "pages/cases.css";
+
+/*pages - file a case*/
+@import "../../css/pages/file-case.css";
+
+/* bootstrap css */
+@import "../../css/plugins/bootstrap.min.css";

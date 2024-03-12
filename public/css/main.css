@@ -36,8 +36,5 @@
 /*responsive*/
 @import "responsive.css";
 
-/* bootstrap css */
-@import "plugins/bootstrap.min.css";
-
 /*modals*/
 @import "layouts/modals.css";
