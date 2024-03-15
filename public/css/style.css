@@ -120,6 +120,64 @@ button.arrow:hover {
     background-size: 25px 22px;
 }
 
+/* user dashboard main styles start */
+.user-container {
+    max-width: 1505px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+.user-dashboard {
+    display: flex;
+}
+
+.user-dashboard-main {
+    width: 100%;
+    max-width: 100%;
+    margin-top: 46px;
+    margin-left: 320px;
+}
+
+.user-main-title-container {
+    display: flex;
+    align-items: start;
+    margin-bottom: 24px;
+    width: 100%;
+}
+
+.user-main-title-container .case-number {
+    margin-top: 2px;
+    margin-right: 8px;
+}
+
+.user-main-title-container .case-number img {
+    width: 40px;
+    height: 40px;
+}
+
+.user-main-title-container .left-side {
+    display: grid;
+    gap: 8px;
+    width: 100%;
+}
+
+.user-main-title-container .file-new-case {
+    width: 150px;
+    height: 50px;
+    opacity: 100%;
+    margin-left: auto;
+
+}
+
+.user-main-title {
+    font-size: 32px;
+    line-height: 45px;
+    font-weight: 400;
+}
+
+/* user dashboard main styles end */
+
 .main-title {
     font-family: PTSerif-Regular;
     font-size: 56px;

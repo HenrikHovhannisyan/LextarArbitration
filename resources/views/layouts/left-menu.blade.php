@@ -25,7 +25,7 @@
             crossorigin="anonymous"></script>
     <script src="{{asset('/user-dashboard/js/app.js')}}"></script>
 </head>
-<body class="bg-white">
+<body>
 <div id="app">
 
     <div class="user-dashboard">
@@ -35,7 +35,7 @@
             </a>
             <ul class="aside-menu">
                 <li class="active">
-                    <a href="">
+                    <a href="{{route('cases-dashboard')}}">
                         <img src="/user-dashboard/images/edit 1.png" alt="edit icon">
                         My Cases
                     </a>

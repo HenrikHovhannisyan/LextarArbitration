@@ -28,6 +28,10 @@ class HomeController extends Controller
     {
         return view('pages.user-dashboard');
     }
+    public function casesSingle()
+    {
+        return view('pages.user-single');
+    }
 
     public function rulesApi()
     {

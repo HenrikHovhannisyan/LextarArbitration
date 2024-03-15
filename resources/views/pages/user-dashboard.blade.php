@@ -79,7 +79,7 @@
                         <td>ABC Corporation</td>
                         <td>XYZ Ltd</td>
                         <td>
-                            <a href="single-case.html">
+                            <a href="{{route('cases-single')}}">
                                 <span>View Case</span>
                                 <img src="../images/arrow-right-blue.png" class="table-right-arrow"
                                      alt="arrow right">
@@ -93,7 +93,7 @@
                         <td>John Doe</td>
                         <td>Jane Smith</td>
                         <td>
-                            <a href="single-case.html">
+                            <a href="{{route('cases-single')}}">
                                 View Case
                                 <img src="../images/arrow-right-blue.png" class="table-right-arrow"
                                      alt="arrow right">
@@ -107,7 +107,7 @@
                         <td>ABC Corporation</td>
                         <td>XYZ Ltd</td>
                         <td>
-                            <a href="single-case.html">
+                            <a href="{{route('cases-single')}}">
                                 View Case
                                 <img src="../images/arrow-right-blue.png" class="table-right-arrow"
                                      alt="arrow right">
