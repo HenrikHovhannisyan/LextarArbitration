@@ -72,48 +72,21 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr>
-                        <td>CASE-123456
-                        </th>
-                        <td>Active</td>
-                        <td>ABC Corporation</td>
-                        <td>XYZ Ltd</td>
-                        <td>
-                            <a href="">
-                                <span>View Case</span>
-                                <img src="../images/arrow-right-blue.png" class="table-right-arrow"
-                                     alt="arrow right">
-                            </a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>CASE-789012
-                        </th>
-                        <td>Closed</td>
-                        <td>John Doe</td>
-                        <td>Jane Smith</td>
-                        <td>
-                            <a href="">
-                                View Case
-                                <img src="../images/arrow-right-blue.png" class="table-right-arrow"
-                                     alt="arrow right">
-                            </a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>CASE-123456
-                        </th>
-                        <td>Inactive</td>
-                        <td>ABC Corporation</td>
-                        <td>XYZ Ltd</td>
-                        <td>
-                            <a href="">
-                                View Case
-                                <img src="../images/arrow-right-blue.png" class="table-right-arrow"
-                                     alt="arrow right">
-                            </a>
-                        </td>
-                    </tr>
+                    @foreach($cases as $case)
+                        <tr>
+                            <td>{{$case->number}}</td>
+                            <td class="text-capitalize">{{$case->status}}</td>
+                            <td>{{$case->claimant}}</td>
+                            <td>-</td>
+                            <td>
+                                <a href="{{ route('cases.show', $case->id) }}">
+                                    <span>View Case</span>
+                                    <img src="../images/arrow-right-blue.png" class="table-right-arrow"
+                                         alt="arrow right">
+                                </a>
+                            </td>
+                        </tr>
+                    @endforeach
                     </tbody>
                 </table>
                 <div class="upcoming-events">
@@ -137,34 +110,6 @@
                             <td>2024-01-20</td>
                             <td>
                                 <a href="">
-                                    Join
-                                    <img src="../images/arrow-right-blue.png" class="table-right-arrow"
-                                         alt="arrow right">
-                                </a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Conference
-                            </th>
-                            <td>CASE-789012</td>
-                            <td>Settlement</td>
-                            <td>2024-01-25</td>
-                            <td>
-                                <a href="" class="disabled">
-                                    Join
-                                    <img src="../images/arrow-right-blue.png" class="table-right-arrow"
-                                         alt="arrow right">
-                                </a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Hearing
-                            </th>
-                            <td>CASE-123456</td>
-                            <td>Arbitration</td>
-                            <td> 2024-02-03</td>
-                            <td>
-                                <a href="" class="disabled">
                                     Join
                                     <img src="../images/arrow-right-blue.png" class="table-right-arrow"
                                          alt="arrow right">

@@ -21,7 +21,8 @@ class ContractController extends Controller
      */
     public function index()
     {
-        return view('pages.user-dashboard');
+        $cases = Contract::all();
+        return view('pages.user-dashboard', compact('cases'));
     }
 
     /**
@@ -74,7 +75,7 @@ class ContractController extends Controller
         $contract->subject = $request->input('subject');
         $contract->message = $request->input('message');
         $contract->number = $case_number;
-        $contract->file = $filePath ?? null; // Use null if file upload fails
+        $contract->file = $filePath;
         $contract->filing = $request->input('filing');
 
         $contract->save();
@@ -92,7 +93,8 @@ class ContractController extends Controller
      */
     public function show($id)
     {
-        return view('pages.user-single');
+        $case = Contract::findOrFail($id);
+        return view('pages.user-single', compact('case'));
     }
 
     /**

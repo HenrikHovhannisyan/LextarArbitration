@@ -10,7 +10,7 @@
         <section>
             <div class="user-container">
                 <div class="user-main-title-container">
-                    <a href="{{route('cases')}}" class="case-number"><img src="../images/back-icon.png" alt="back icon"></a>
+                    <a href="{{route('cases.index')}}" class="case-number"><img src="../images/back-icon.png" alt="back icon"></a>
                     <div class="left-side">
                         <h1 class="user-main-title">CASE-123456</h1>
                         <span class="paragraph">Case Overview & Details</span>
@@ -28,11 +28,11 @@
                     </thead>
                     <tbody>
                     <tr>
-                        <td>Active</th>
-                        <td>John Doe</td>
-                        <td>Jane Smith</td>
-                        <td>[Arbitrator Name]</td>
-                        <td>[Partner Name]</td>
+                        <td class="text-capitalize">{{$case->status}}</th>
+                        <td>{{$case->claimant}}</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>-</td>
                     </tr>
                     </tbody>
                 </table>
