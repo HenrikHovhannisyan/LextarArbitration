@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\ContractController;
 use App\Http\Controllers\FormsController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\RulesController;
@@ -31,6 +32,5 @@ Auth::routes();
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/faq', [HomeController::class, 'faq'])->name('faq');
 Route::get('/rules-forms', [HomeController::class, 'rulesForms'])->name('rules-forms');
-Route::get('/cases-dashboard', [HomeController::class, 'casesDashboard'])->name('cases-dashboard');
-Route::get('/cases-single', [HomeController::class, 'casesSingle'])->name('cases-single');
+Route::resource('cases', ContractController::class);
 

@@ -24,14 +24,9 @@ class HomeController extends Controller
         return view('pages.faq');
     }
 
-    public function casesDashboard()
-    {
-        return view('pages.user-dashboard');
-    }
-    public function casesSingle()
-    {
-        return view('pages.user-single');
-    }
+
+//    --------------------API-------------------
+
 
     public function rulesApi()
     {

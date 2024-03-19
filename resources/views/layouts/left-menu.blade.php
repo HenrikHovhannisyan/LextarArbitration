@@ -35,7 +35,7 @@
             </a>
             <ul class="aside-menu">
                 <li class="active">
-                    <a href="{{route('cases-dashboard')}}">
+                    <a href="{{route('cases.index')}}">
                         <img src="/user-dashboard/images/edit 1.png" alt="edit icon">
                         My Cases
                     </a>

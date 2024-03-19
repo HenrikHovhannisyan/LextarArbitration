@@ -10,7 +10,7 @@
         <section>
             <div class="user-container">
                 <div class="user-main-title-container">
-                    <a href="{{route('cases-dashboard')}}" class="case-number"><img src="../images/back-icon.png" alt="back icon"></a>
+                    <a href="{{route('cases')}}" class="case-number"><img src="../images/back-icon.png" alt="back icon"></a>
                     <div class="left-side">
                         <h1 class="user-main-title">CASE-123456</h1>
                         <span class="paragraph">Case Overview & Details</span>
