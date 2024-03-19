@@ -24,9 +24,9 @@ return new class extends Migration
             $table->text('message');
             $table->string('file');
             $table->string('filing');
-            $table->string('respondent');
-            $table->string('arbitrator');
-            $table->string('partner');
+            $table->string('respondent')->nullable();
+            $table->string('arbitrator')->nullable();
+            $table->string('partner')->nullable();
             $table->timestamps();
         });
     }

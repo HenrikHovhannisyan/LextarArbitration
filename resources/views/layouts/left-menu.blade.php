@@ -94,21 +94,22 @@
                         </div>
                         <div class="right-side w-100" id="arbitration-rules-content">
                             <!-- added "validation" class to the file case form to validate the form -->
-                            <form action="" class="file-case-form">
+                            <form action="{{ route('cases.store') }}" method="POST" class="file-case-form" enctype="multipart/form-data">
+                                @csrf
                                 <div class="form-item">
-                                    <input type="text" class="full-name" placeholder="Full name" required="">
+                                    <input type="text" name="claimant" class="full-name" placeholder="Full name" required="">
                                     <span>Please enter full name.</span>
                                 </div>
                                 <div class="form-item">
-                                    <input type="email" class="email" placeholder="Email" required="">
+                                    <input type="email" name="email" class="email" placeholder="Email" required="">
                                     <span>Please enter valid email.</span>
                                 </div>
                                 <div class="form-item">
-                                    <input type="tel" class="phone-number" placeholder="Phone number" required="">
+                                    <input type="tel" name="phone" class="phone-number" placeholder="Phone number" required="">
                                     <span>Please enter phone number.</span>
                                 </div>
                                 <div class="form-item">
-                                    <input type="text" class="subjectr" placeholder="Subject (arbitration/mediation)" required="">
+                                    <input type="text" name="subject" class="subjectr" placeholder="Subject (arbitration/mediation)" required="">
                                     <span>Please enter subject.</span>
                                 </div>
                                 <div class="form-item w-100">
@@ -117,11 +118,11 @@
                                 </div>
                                 <div class="file-input form-item w-100">
                                     <div class="attach-text">Attach document</div>
-                                    <input type="file" class="file w-100" placeholder="Attach document" required="">
+                                    <input type="file" name="file" class="file w-100" placeholder="Attach document" required="">
                                     <span>Please enter attach document.</span>
                                 </div>
                                 <div class="form-item w-100">
-                                    <input type="text" class="fee w-100" placeholder="Enter filing fee to be charged" required="">
+                                    <input type="text" name="filing" class="fee w-100" placeholder="Enter filing fee to be charged" required="">
                                     <span>Please enter filing fee to be charged.</span>
                                 </div>
                                 <div class="form-info w-100">
@@ -131,7 +132,7 @@
                                         <li>Arbitration/Mediation Clause or Agreement</li>
                                     </ul>
                                 </div>
-                                <button class="submit secondary">Submit</button>
+                                <button type="submit" class="submit secondary">Submit</button>
                             </form>
                         </div>
                     </div>
