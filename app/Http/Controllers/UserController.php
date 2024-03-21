@@ -57,11 +57,12 @@ class UserController extends Controller
      * Show the form for editing the specified resource.
      *
      * @param int $id
-     * @return void
+     * @return Factory|View
      */
     public function edit($id)
     {
-        //
+        $user = User::where('id', '=', $id)->first();
+        return view('pages.account', compact('user'));
     }
 
     /**

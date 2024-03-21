@@ -17,6 +17,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="{{asset('/user-dashboard/css/main.css')}}">
+    <link rel="stylesheet" href="{{asset('/css/main.css')}}">
 
     <!-- Scripts -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
@@ -24,6 +25,7 @@
             integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
             crossorigin="anonymous"></script>
     <script src="{{asset('/user-dashboard/js/app.js')}}"></script>
+    <script src="{{asset('/js/app.js')}}"></script>
 </head>
 <body>
 <div id="app">
@@ -31,7 +33,7 @@
     <div class="user-dashboard">
         <aside>
             <a href="" class="logo">
-                <img src="../images/Logo.png" alt="Logo">
+                <img src="{{asset('images/Logo.png')}}" alt="Logo">
             </a>
             <ul class="aside-menu">
                 <li class="active">
@@ -47,7 +49,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="">
+                    <a href="{{route('users.edit', Auth::user()->id )}}">
                         <img src="/user-dashboard/images/account.png" alt="account icon">
                         My Account
                     </a>
