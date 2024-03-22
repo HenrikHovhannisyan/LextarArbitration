@@ -11,7 +11,7 @@
                             @csrf
                             <div class="title w-100">
                                 <h1 class="secondary-title">Sign In</h1>
-                                <span class="paragraph">Don't have an account yet? <a href="{{ route('register') }}">Registrate.</a></span>
+                                <span class="paragraph">Don't have an account yet? <a href="{{ route('register') }}">Register.</a></span>
                             </div>
                             <div class="form-item w-100">
                                 <input id="email" type="email"
