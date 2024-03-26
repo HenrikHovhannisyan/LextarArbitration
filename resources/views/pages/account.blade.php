@@ -8,6 +8,38 @@
 
     <main class="user-dashboard-main">
         <section>
+            @if(session('success'))
+                <div class="modal fade" id="success-messages" tabindex="-1" aria-labelledby="exampleModalLabel"
+                     aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content">
+                            <div class="modal-header border-0">
+                                <button type="button" class="btn-close border border-dark rounded-circle" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body text-center">
+                                <img src="{{asset('img/success-messages.png')}}" alt="Logo" style="width: 160px;">
+                                <p class="mt-3">{{ session('success') }}</p>
+                            </div>
+                            <div class="modal-footer border-0">
+                                <button type="button" class="btn btn-primary m-auto" data-bs-dismiss="modal"
+                                        aria-label="Close">Go to Home
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            @endif
+
+            @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
             <div class="user-container">
                 <div class="user-main-title-container">
                     <a href="{{route('cases.index')}}" class="case-number"><img src="{{asset('images/back-icon.png')}}"
@@ -61,7 +93,10 @@
                                 </div>
                                 <div class="modal-body">
                                     <p class="edit_profile_title">Edit Personal Info</p>
-                                    <form class="">
+                                    <form method="POST" action="{{ route('users.update', ['user' => $user->id]) }}"
+                                          enctype="multipart/form-data">
+                                        @csrf
+                                        @method('PUT')
                                         <div class="account_form">
                                             <div>
                                                 <p class="account_form_title">Personal Details</p>
@@ -73,7 +108,8 @@
                                                                 *</label>
                                                             <input type="text" name="first_name" id="first_name"
                                                                    class="form-control " placeholder="First name *"
-                                                                   value="{{$user->first_name}}" required>
+                                                                   value="{{ old('first_name', $user->first_name) }}"
+                                                                   required>
                                                         </div>
                                                     </div>
                                                     <div class="col-12 col-md-6 mb-2">
@@ -82,7 +118,8 @@
                                                                 *</label>
                                                             <input type="text" name="last_name" id="last_name"
                                                                    class="form-control " placeholder="Last name *"
-                                                                   value="{{$user->last_name}}" required>
+                                                                   value="{{ old('last_name', $user->last_name) }}"
+                                                                   required>
                                                         </div>
                                                     </div>
                                                     <div class="col-12 col-md-6 mb-2">
@@ -90,7 +127,7 @@
                                                             <label for="name" class="form-label">User name *</label>
                                                             <input type="text" name="name" id="name"
                                                                    class="form-control " placeholder="User name *"
-                                                                   value="{{$user->name}}" required>
+                                                                   value="{{ old('name', $user->name) }}" required>
                                                         </div>
                                                     </div>
                                                     <div class="col-12 col-md-6 mb-2">
@@ -98,7 +135,7 @@
                                                             <label for="email" class="form-label">Email *</label>
                                                             <input type="email" name="email" id="email"
                                                                    class="form-control " placeholder="Email *"
-                                                                   value="{{$user->email}}" required>
+                                                                   value="{{ old('email', $user->email) }}" required>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -111,19 +148,22 @@
                                                 <div class="form-group mb-2">
                                                     <label for="country" class="form-label">Country *</label>
                                                     <input type="text" name="country" id="country" class="form-control "
-                                                           placeholder="Country *" value="{{$user->country}}"
+                                                           placeholder="Country *"
+                                                           value="{{ old('country', $user->country) }}"
                                                            required="">
                                                 </div>
                                                 <div class="form-group mb-2">
                                                     <label for="address" class="form-label">Address *</label>
                                                     <input type="text" name="address" id="address" class="form-control "
-                                                           placeholder="Address *" value="{{$user->address}}"
+                                                           placeholder="Address *"
+                                                           value="{{ old('address', $user->address) }}"
                                                            required="">
                                                 </div>
                                                 <div class="form-group mb-2">
                                                     <label for="state" class="form-label">Select a State *</label>
                                                     <input type="text" name="state" id="state" class="form-control "
-                                                           placeholder="Select a State *" value="{{$user->state}}"
+                                                           placeholder="Select a State *"
+                                                           value="{{ old('state', $user->state) }}"
                                                            required="">
                                                 </div>
                                                 <div class="row">
@@ -132,14 +172,15 @@
                                                             <label for="city" class="form-label">City *</label>
                                                             <input type="text" name="city" id="city"
                                                                    class="form-control " placeholder="City"
-                                                                   value="{{$user->city}}" required="">
+                                                                   value="{{ old('city', $user->city) }}" required="">
                                                         </div>
                                                     </div>
                                                     <div class="col-12 col-md-6">
                                                         <div class="form-group mb-2">
                                                             <label for="zip" class="form-label">Zip Code *</label>
                                                             <input type="text" name="zip" id="zip" class="form-control "
-                                                                   placeholder="Zip Code *" value="{{$user->zip}}"
+                                                                   placeholder="Zip Code *"
+                                                                   value="{{ old('zip', $user->zip) }}"
                                                                    required="">
                                                         </div>
                                                     </div>
@@ -153,12 +194,13 @@
                                                 <div class="form-group mb-2">
                                                     <label for="phone" class="form-label">Phone *</label>
                                                     <input type="text" name="phone" id="phone" class="form-control "
-                                                           placeholder="Phone *" value="{{$user->phone}}" required="">
+                                                           placeholder="Phone *"
+                                                           value="{{ old('phone', $user->phone) }}" required="">
                                                 </div>
                                                 <div class="form-group mb-2">
                                                     <label for="fax" class="form-label">Fax</label>
                                                     <input type="text" name="fax" id="fax" class="form-control "
-                                                           placeholder="Fax" value="{{$user->fax}}">
+                                                           placeholder="Fax" value="{{ old('fax', $user->fax) }}">
                                                 </div>
                                             </div>
                                             <div class="mt-5">
@@ -166,19 +208,19 @@
                                                     Change Password
                                                 </p>
                                                 <hr>
-                                                <div class="form-group mb-2">
-                                                    <label for="current_password" class="form-label">Current Password
-                                                        *</label>
-                                                    <input type="text" name="current_password" id="current_password"
-                                                           class="form-control" placeholder="Current Password *"
-                                                           value="" required="">
-                                                </div>
+{{--                                                <div class="form-group mb-2">--}}
+{{--                                                    <label for="current_password" class="form-label">Current Password--}}
+{{--                                                        *</label>--}}
+{{--                                                    <input type="text" name="current_password" id="current_password"--}}
+{{--                                                           class="form-control" placeholder="Current Password *"--}}
+{{--                                                           value="">--}}
+{{--                                                </div>--}}
                                                 <div class="form-group mb-2">
                                                     <label for="password" class="form-label">New Password *</label>
                                                     <div class="position-relative">
                                                         <input type="password" id="password" name="password"
                                                                class="form-control " placeholder="New Password *"
-                                                               required="">
+                                                        >
                                                         <button type="button" class="sign_up_btn_eye" id="showPassword">
                                                             <i class="fa-regular fa-eye"></i>
                                                         </button>
@@ -194,7 +236,7 @@
                                                     <div class="position-relative">
                                                         <input type="password" id="confirm_password"
                                                                name="password_confirmation" class="form-control "
-                                                               placeholder="Confirm New Password *" required="">
+                                                               placeholder="Confirm New Password *">
                                                         <button type="button" class="sign_up_btn_eye"
                                                                 id="showConfirmPassword">
                                                             <i class="fa-regular fa-eye"></i>
@@ -222,7 +264,6 @@
                                             <button type="submit" class="btn btn-primary">Update</button>
                                         </div>
                                     </form>
-
                                 </div>
                             </div>
                         </div>

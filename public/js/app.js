@@ -49,7 +49,9 @@ $(document).ready(function() {
 });
 
 
-
+$(window).on('load', function() {
+    $('#success-messages').modal('show');
+});
 
 
 

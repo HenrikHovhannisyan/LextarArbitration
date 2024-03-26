@@ -5,8 +5,11 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -18,7 +21,7 @@ class UserController extends Controller
     public function index()
     {
         $users = User::all();
-        return view('admin.users.index',compact('users'));
+        return view('admin.users.index', compact('users'));
     }
 
     /**
@@ -70,11 +73,42 @@ class UserController extends Controller
      *
      * @param Request $request
      * @param int $id
-     * @return void
+     * @return RedirectResponse
      */
     public function update(Request $request, $id)
     {
-        //
+        $user = User::find($id);
+
+        $validator = Validator::make($request->all(), [
+            'name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users,email,' . $user->id],
+            'phone' => ['required', 'min:11', 'numeric', 'unique:users,phone,' . $user->id],
+            'password' => ['nullable', 'string', 'min:8', 'confirmed', 'regex:/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*(_|[^\w])).+$/'],
+            'first_name' => ['required', 'string', 'max:255'],
+            'last_name' => ['required', 'string', 'max:255'],
+            'agree' => ['boolean'],
+            'country' => ['required', 'string', 'max:255'],
+            'address' => ['required', 'string', 'max:255'],
+            'state' => ['required', 'string', 'max:255'],
+            'city' => ['required', 'string', 'max:255'],
+            'zip' => ['required', 'string', 'max:255'],
+            'fax' => ['nullable', 'string', 'max:255'],
+            'authorize' => ['boolean'],
+        ]);
+
+        if ($validator->fails()) {
+            return redirect()->back()->withErrors($validator)->withInput();
+        }
+
+        if ($request->filled('password')) {
+            $request->merge(['password' => Hash::make($request->input('password'))]);
+        } else {
+            $request->request->remove('password');
+        }
+
+        $user->update($request->all());
+
+        return redirect()->back()->with('success', 'Profile updated successfully.');
     }
 
     /**
