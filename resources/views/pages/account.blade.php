@@ -261,7 +261,7 @@
                                             </div>
                                         </div>
                                         <div class="w-100 text-center mt-3">
-                                            <button type="submit" class="btn btn-primary">Update</button>
+                                            <button type="submit" class="btn btn-primary rounded-0">Update</button>
                                         </div>
                                     </form>
                                 </div>

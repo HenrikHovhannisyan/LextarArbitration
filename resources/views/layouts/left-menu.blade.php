@@ -55,23 +55,37 @@
                     </a>
                 </li>
                 <li>
-
-                    <a href="{{ route('logout') }}"
-                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
+                    <a href="#" data-toggle="modal" data-target="#logoutModal">
                         <img src="/user-dashboard/images/logout 1.png" alt="logout icon">
                         Log out
                     </a>
-
-                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                        @csrf
-                    </form>
                 </li>
             </ul>
         </aside>
 
+        <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="logoutModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header border-0">
+                        <button type="button" class="btn-close border border-dark rounded-circle" data-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body text-center">
+                        <img src="{{asset('/img/LOGOUT.png')}}" style="width: 100px;" alt="">
+                        <p class="mt-4">Are you sure you want to log out?</p>
+                    </div>
+                    <div class="modal-footer border-0 d-flex justify-content-center align-items-center">
+                        <button type="button" class="btn btn-outline-primary rounded-0" data-dismiss="modal">Cancel</button>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-inline">
+                            @csrf
+                            <button type="submit" class="btn btn-primary rounded-0">Log Out</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-    <!-- File Case Modal -->
+
+        <!-- File Case Modal -->
     <div class="modal fade upload-modal file-case-modal" id="fileCaseModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
