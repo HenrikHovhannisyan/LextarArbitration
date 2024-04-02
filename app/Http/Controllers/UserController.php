@@ -121,4 +121,23 @@ class UserController extends Controller
     {
         //
     }
+
+    public function updateRole(Request $request, User $user)
+    {
+        $request->validate([
+            'role' => 'required',
+        ]);
+
+        $user->is_admin = $request->input('role');
+        $user->save();
+
+        return redirect()->back()
+            ->with('success', 'User role updated successfully');
+    }
+
+    public function caseManager()
+    {
+        $users = User::where('is_admin', 3)->get();
+        return view('admin.users.caseManager', compact('users'));
+    }
 }

@@ -13,7 +13,7 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-12 mt-3">
-                        <h1>Users</h1>
+                        <h1>Case Manager</h1>
                         @if ($message = Session::get('success'))
                             <div class="alert alert-success">
                                 <p>{{ $message }}</p>

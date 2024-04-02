@@ -18,6 +18,12 @@
             </a>
         </li>
         <li>
+            <a href="{{ route('users.caseManager') }}" class="{{ isActiveRoute('users.caseManager') }}">
+                <i class="fa-solid fa-users"></i>
+                <span class="ms-1">Case Manager</span>
+            </a>
+        </li>
+        <li>
             <a href="{{ route('rules.index') }}" class="{{ isActiveRoute('rules.index') }}">
                 <i class="fa-solid fa-file-pdf"></i>
                 <span class="ms-1">Rules</span>

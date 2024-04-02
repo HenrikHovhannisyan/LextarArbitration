@@ -25,6 +25,8 @@ Route::middleware(['auth', 'is_admin'])->prefix('admin')->group(function () {
     Route::resource('users', UserController::class);
     Route::resource('rules', RulesController::class);
     Route::resource('forms', FormsController::class);
+    Route::put('/users/{user}/update-role', [UserController::class, 'updateRole'])->name('users.updateRole');
+    Route::get('/case-manager', [UserController::class, 'caseManager'])->name('users.caseManager');
 });
 
 Auth::routes();
