@@ -26,8 +26,9 @@ class AdminController extends Controller
     public function home()
     {
         $userCount = count(User::all());
+        $caseManagerCount = count(User::where('is_admin', 3)->get());
         $rulesCount = count(Rule::all());
         $formsCount = count(Form::all());
-        return view('admin.home', compact('userCount', 'rulesCount', 'formsCount'));
+        return view('admin.home', compact('userCount', 'caseManagerCount', 'rulesCount', 'formsCount'));
     }
 }

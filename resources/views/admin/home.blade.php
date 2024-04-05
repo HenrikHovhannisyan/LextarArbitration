@@ -23,6 +23,17 @@
                             <a href="{{ route('users.index') }}" class="btn btn-light">Go</a>
                         </div>
                     </div>
+                    @if(auth()->user()->is_admin === 1)
+                        <div class="col-sm-6 col-md-4 col-lg-3 mt-3">
+                            <div class="bg-warning border border-dark rounded p-3 text-center shadow">
+                                <i class="fa-solid fa-users fa-3x text-white fa-beat-fade"></i>
+                                <h4 class="text-white mt-3 mb-3">
+                                    Case Manager - <span>{{$caseManagerCount}}</span>
+                                </h4>
+                                <a href="{{ route('users.caseManager') }}" class="btn btn-light">Go</a>
+                            </div>
+                        </div>
+                    @endif
                     <div class="col-sm-6 col-md-4 col-lg-3 mt-3">
                         <div class="bg-success border border-dark rounded p-3 text-center shadow">
                             <i class="fa-solid fa-file-pdf fa-3x text-white fa-beat-fade"></i>

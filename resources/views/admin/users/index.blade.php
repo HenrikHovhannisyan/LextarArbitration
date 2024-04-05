@@ -55,9 +55,11 @@
                                                         <option value="2" @if($user->is_admin == 2) selected @endif>
                                                             Admin
                                                         </option>
-                                                        <option value="3" @if($user->is_admin == 3) selected @endif>
-                                                            Case Manager
-                                                        </option>
+                                                        @if(auth()->user()->is_admin === 1)
+                                                            <option value="3" @if($user->is_admin == 3) selected @endif>
+                                                                Case Manager
+                                                            </option>
+                                                        @endif
                                                         <option value="0" @if($user->is_admin == 0) selected @endif>
                                                             User
                                                         </option>
