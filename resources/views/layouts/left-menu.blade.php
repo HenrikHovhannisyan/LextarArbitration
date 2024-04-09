@@ -41,7 +41,7 @@
                     <li class="{{isActiveRoute("partners.index")}}">
                         <a href="{{route('partners.index')}}">
                             <img src="/user-dashboard/images/edit 1.png" alt="edit icon">
-                            My Cases
+                            Partner Dashboard
                         </a>
                     </li>
                 @else
