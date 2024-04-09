@@ -4,6 +4,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ContractController;
 use App\Http\Controllers\FormsController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PartnerController;
 use App\Http\Controllers\RulesController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Auth;
@@ -35,5 +36,6 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/faq', [HomeController::class, 'faq'])->name('faq');
 Route::get('/rules-forms', [HomeController::class, 'rulesForms'])->name('rules-forms');
 Route::resource('cases', ContractController::class);
+Route::resource('partners', PartnerController::class);
 Route::resource('users', UserController::class);
 
