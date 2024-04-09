@@ -387,3 +387,31 @@ button.arrow:hover {
     position: relative;
     top: -15px;
 }
+
+.partner_box  {
+    max-width: 350px;
+    border: 1px solid #2672D31A;
+    background: #FFFFFF;
+}
+.partner_box > img {
+    width: 50px;
+}
+.partner_box > h4 {
+    font-family: PT Serif, serif;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 21.6px;
+    letter-spacing: 0.04em;
+    text-align: left;
+    color: #194A8A;
+    margin-top: 15px;
+    margin-bottom: 10px;
+}
+.partner_box > p {
+    font-family: PT Serif, serif;
+    font-size: 28px;
+    font-weight: 400;
+    line-height: 42px;
+    text-align: left;
+    color: #171A1E;
+}

@@ -18,6 +18,46 @@
                             data-target="#fileCaseModal">File New Case
                     </button>--}}
                 </div>
+                <div class="container-fluid p-0 mb-5">
+                    <div class="row">
+                        <div class="col-md-12 col-lg-3 mt-3">
+                            <div class="rounded p-3 partner_box">
+                                <img src="{{asset('img/partner/1.png')}}" alt="">
+                                <h4>
+                                    Active Cases
+                                </h4>
+                                <p>4</p>
+                            </div>
+                        </div>
+                        <div class="col-md-12 col-lg-3 mt-3">
+                            <div class="rounded p-3 partner_box">
+                                <img src="{{asset('img/partner/2.png')}}" alt="">
+                                <h4>
+                                    Disputes Resolved
+                                </h4>
+                                <p>16</p>
+                            </div>
+                        </div>
+                        <div class="col-md-12 col-lg-3 mt-3">
+                            <div class="rounded p-3 partner_box">
+                                <img src="{{asset('img/partner/3.png')}}" alt="">
+                                <h4>
+                                    Contribution to Cases
+                                </h4>
+                                <p>65.55%</p>
+                            </div>
+                        </div>
+                        <div class="col-md-12 col-lg-3 mt-3">
+                            <div class="rounded p-3 partner_box">
+                                <img src="{{asset('img/partner/4.png')}}" alt="">
+                                <h4>
+                                    Success Rate
+                                </h4>
+                                <p>85%</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <div class="case-filtering">
                     <div class="filter-item">
                         <label class="label-container">
