@@ -9,6 +9,10 @@
             <a href="#menu-toggle" class="btn btn-outline-primary" id="menu-toggle">
                 <i class="fa-solid fa-bars"></i>
             </a>
+            <a href="{{route('users.partners')}}" type="button" class="btn btn-primary ms-2">
+                <i class="fa-solid fa-chevron-left"></i>
+                Back
+            </a>
             <div class="container mt-5">
                 <div class="row justify-content-center">
                     <div class="col-12 col-md-8">
