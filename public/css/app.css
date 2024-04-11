@@ -155,6 +155,172 @@ div.dataTables_wrapper div.dataTables_length select {
     font-size: 18px;
 }
 
+.sign_up_form_title {
+    font-family: PT Serif, serif;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 36px;
+    letter-spacing: 0;
+    text-align: left;
+    color: #171A1E;
+    border-bottom: 1px solid #2672D31A;
+    margin-bottom: 25px;
+    padding-bottom: 10px;
+}
+
+.sign_up_form .form-control {
+    border: 1px solid #2672D333;
+    border-radius: 4px;
+    padding: 8px 12px;
+    margin-bottom: 20px;
+}
+
+.sign_up_form .btn-primary {
+    border-radius: 4px;
+    padding: 10px 24px;
+    background: #2672D3;
+    font-family: PT Serif, serif;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 32px;
+    letter-spacing: 0;
+    text-align: center;
+    color: #FFFFFF;
+    width: 100%;
+}
+
+.sign_up_form .btn-secondary {
+    border-radius: 4px;
+    padding: 12px;
+    border: 1px solid #2672D3;
+    background: #ffffff;
+    font-family: PT Serif, serif;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 32px;
+    letter-spacing: 0;
+    text-align: center;
+    color: #2672D3;
+    width: 120px;
+}
+
+.sign_up_btn_container {
+    display: flex;
+    gap: 10px;
+}
+
+.sign_up_btn_eye {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    background-color: transparent;
+    border: none;
+    color: #484A4D !important;
+}
+
+.password_info {
+    border-radius: 4px;
+    background: #EEF4FB;
+    padding: 12px;
+    font-family: PT Serif, serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 29px;
+    letter-spacing: 0;
+    text-align: left;
+    color: #171A1EE5;
+    margin-bottom: 32px;
+}
+
+.authorize,
+.agree {
+    font-family: PT Serif, serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: 0;
+    text-align: left;
+    color: #171A1ECC;
+    margin-bottom: 32px;
+}
+
+.steps {
+    margin: 40px auto;
+}
+
+.step_item_circle {
+    border: 1px solid #2672D3;
+    border-radius: 50%;
+    font-family: PT Serif, serif;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 36px;
+    letter-spacing: 0;
+    text-align: center;
+    color: #171A1E;
+    margin: 0 auto 10px;
+    display: block;
+    width: 40px;
+    height: 40px;
+}
+
+.step_item_circle.active {
+    background-color: #2672D3;
+    color: #ffffff;
+}
+
+.step_item_title {
+    font-family: PT Serif, serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 25px;
+    letter-spacing: 0;
+    text-align: center;
+    color: #171A1E;
+}
+
+.steps_line {
+    border: 2px solid #2672D31A;
+    width: 100%;
+    max-width: 100px;
+    margin: 19px auto 0;
+}
+
+.form-group .text-danger {
+    position: relative;
+    top: -15px;
+}
+
+.authorize a,
+.agree a {
+    color: #2672D3;
+}
+
+.registration_title {
+    font-family: PT Serif, serif;
+    font-size: 40px;
+    font-weight: 400;
+    line-height: 56px;
+    letter-spacing: 0.02em;
+    text-align: center;
+    color: #171A1E;
+}
+
+.have_account {
+    font-family: PT Serif, serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 29px;
+    letter-spacing: 0.02em;
+    text-align: center;
+    color: #171A1ECC;
+}
+
+.have_account > a {
+    color: #2672D3;
+    text-decoration: underline !important;
+}
+
 /*=============== BREAKPOINTS ===============*/
 @media screen and (max-width: 1200px) {
 }

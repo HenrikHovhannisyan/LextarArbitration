@@ -28,6 +28,8 @@ Route::middleware(['auth', 'is_admin'])->prefix('admin')->group(function () {
     Route::resource('forms', FormsController::class);
     Route::put('/users/{user}/update-role', [UserController::class, 'updateRole'])->name('users.updateRole');
     Route::get('/case-manager', [UserController::class, 'caseManager'])->name('users.caseManager');
+    Route::get('/partners', [UserController::class, 'partners'])->name('users.partners');
+    Route::get('/add-partner', [UserController::class, 'addPartner'])->name('users.addPartner');
 });
 
 Auth::routes();

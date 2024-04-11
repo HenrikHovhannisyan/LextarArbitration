@@ -26,6 +26,12 @@
             </li>
         @endif
         <li>
+            <a href="{{ route('users.partners') }}" class="{{ isActiveRoute('users.partners') }}">
+                <i class="fa-solid fa-handshake"></i>
+                <span class="ms-1">Partners</span>
+            </a>
+        </li>
+        <li>
             <a href="{{ route('rules.index') }}" class="{{ isActiveRoute('rules.index') }}">
                 <i class="fa-solid fa-file-pdf"></i>
                 <span class="ms-1">Rules</span>

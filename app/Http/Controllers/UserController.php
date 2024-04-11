@@ -122,6 +122,11 @@ class UserController extends Controller
         //
     }
 
+    /**
+     * @param Request $request
+     * @param User $user
+     * @return RedirectResponse
+     */
     public function updateRole(Request $request, User $user)
     {
         $request->validate([
@@ -135,9 +140,25 @@ class UserController extends Controller
             ->with('success', 'User role updated successfully');
     }
 
+    /**
+     * @return Factory|View
+     */
     public function caseManager()
     {
         $users = User::where('is_admin', 3)->get();
         return view('admin.users.caseManager', compact('users'));
+    }
+
+    /**
+     * @return Factory|View
+     */
+    public function partners()
+    {
+        $partners = User::where('is_admin', 5)->get();
+        return view('admin.users.partners', compact('partners'));
+    }
+    public function addPartner()
+    {
+        return view('admin.users.add-partner');
     }
 }
