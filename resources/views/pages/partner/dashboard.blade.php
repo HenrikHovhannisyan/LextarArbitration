@@ -119,7 +119,7 @@
                             <td>{{$case->claimant}}</td>
                             <td>-</td>
                             <td>
-                                <a href="{{ route('partners.show', $case->id) }}">
+                                <a href="{{ route('partner.show', $case->id) }}">
                                     <span>View Case</span>
                                     <img src="../images/arrow-right-blue.png" class="table-right-arrow"
                                          alt="arrow right">

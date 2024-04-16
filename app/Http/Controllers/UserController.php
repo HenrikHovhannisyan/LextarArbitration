@@ -20,7 +20,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = User::all();
+        $users = User::where('is_admin', '!=', 4)->get();
         return view('admin.users.index', compact('users'));
     }
 
@@ -154,11 +154,64 @@ class UserController extends Controller
      */
     public function partners()
     {
-        $partners = User::where('is_admin', 5)->get();
+        $partners = User::where('is_admin', 4)->get();
         return view('admin.users.partners', compact('partners'));
     }
     public function addPartner()
     {
         return view('admin.users.add-partner');
+    }
+    protected function createPartner(Request $request)
+    {
+
+        $data = $request->validate([
+            'name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'phone' => ['required', 'min:11', 'numeric', 'unique:users'],
+            'password' => [
+                'required',
+                'string',
+                'min:8',
+                'confirmed',
+                'regex:/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*(_|[^\w])).+$/'
+            ],
+            // Additional fields validation
+            'company_name' => ['required', 'string', 'max:255'],
+            'first_name' => ['required', 'string', 'max:255'],
+            'last_name' => ['required', 'string', 'max:255'],
+            'agree' => ['boolean'],
+            'country' => ['required', 'string', 'max:255'],
+            'address' => ['required', 'string', 'max:255'],
+            'state' => ['required', 'string', 'max:255'],
+            'city' => ['required', 'string', 'max:255'],
+            'zip' => ['required', 'string', 'max:255'],
+            'fax' => ['nullable', 'string', 'max:255'],
+            'authorize' => ['boolean'],
+        ]);
+
+        $agree = $request->has('agree');
+        $authorize = $request->has('authorize');
+
+        User::create([
+            'name' => $data['name'],
+            'email' => $data['email'],
+            'phone' => $data['phone'],
+            'password' => Hash::make($data['password']),
+            // Additional fields
+            'company_name' => $data['company_name'],
+            'first_name' => $data['first_name'],
+            'last_name' => $data['last_name'],
+            'agree' => $agree,
+            'country' => $data['country'],
+            'address' => $data['address'],
+            'state' => $data['state'],
+            'city' => $data['city'],
+            'zip' => $data['zip'],
+            'fax' => $data['fax'],
+            'authorize' => $authorize,
+            'is_admin' => 4,
+        ]);
+
+        return redirect()->route('users.partners')->with('success', 'Partner added successfully.');
     }
 }

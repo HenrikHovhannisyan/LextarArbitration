@@ -53,6 +53,8 @@ class LoginController extends Controller
                 return redirect()->route('admin.home');
             } else if(auth()->user()->is_admin == 3) {
                 return redirect()->route('partners.index');
+            } else if(auth()->user()->is_admin == 4) {
+                return redirect()->route('partner.index');
             } else {
                 return redirect()->route('cases.index');
             }

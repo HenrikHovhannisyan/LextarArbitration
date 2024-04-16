@@ -48,7 +48,7 @@
                         </div>
 
                         <div class="sign_up_form">
-                            <form id="multiStepForm" method="POST" action="{{ route('register') }}">
+                            <form id="multiStepForm" method="POST" action="{{ route('users.createPartner') }}">
                             @csrf
                             <!-- Step 1 -->
                                 <div class="form-step" id="step1">
@@ -144,6 +144,15 @@
                                     <p class="sign_up_form_title">
                                         Contact Information
                                     </p>
+                                    <div class="form-group">
+                                        <input type="text" name="company_name"
+                                               class="form-control @error('company_name') is-invalid @enderror"
+                                               placeholder="Company Name *"
+                                               value="{{ old('company_name') }}" required>
+                                        @error('phone')
+                                        <span class="text-danger">{{ $message }}</span>
+                                        @enderror
+                                    </div>
                                     <div class="form-group">
                                         <input type="text" name="phone"
                                                class="form-control @error('phone') is-invalid @enderror"

@@ -30,8 +30,7 @@
                         <table id="example" class="display" style="width:100%">
                             <thead>
                             <tr>
-                                <th>Name</th>
-                                <th>Position</th>
+                                <th>Company Name</th>
                                 <th>Phone</th>
                                 <th>Email</th>
                                 <th>Created date</th>
@@ -41,43 +40,7 @@
                             <tbody>
                             @foreach($partners as $user)
                                 <tr>
-                                    <td>{{ $user->name }}</td>
-                                    <td class="d-flex justify-content-between align-items-center">
-                                        @if($user->is_admin === 1 )
-                                            <span class="text-danger">Super Admin</span>
-                                        @elseif($user->is_admin === 2)
-                                            <span class="text-warning">Admin</span>
-                                        @elseif($user->is_admin === 3)
-                                            <span class="text-info">Case Manager</span>
-                                        @else
-                                            <span class="text-success">User</span>
-                                        @endif
-                                        @if($user->is_admin !== 1)
-                                            <form method="POST"
-                                                  action="{{ route('users.updateRole', ['user' => $user]) }}">
-                                                @csrf
-                                                @method('PUT')
-
-                                                <div class="d-flex">
-                                                    <select class="form-select role_select" name="role">
-                                                        <option value="2" @if($user->is_admin == 2) selected @endif>
-                                                            Admin
-                                                        </option>
-                                                        <option value="3" @if($user->is_admin == 3) selected @endif>
-                                                            Case Manager
-                                                        </option>
-                                                        <option value="0" @if($user->is_admin == 0) selected @endif>
-                                                            User
-                                                        </option>
-                                                    </select>
-
-                                                    <button class="btn btn-success" type="submit">
-                                                        <i class="fa-solid fa-check"></i>
-                                                    </button>
-                                                </div>
-                                            </form>
-                                        @endif
-                                    </td>
+                                    <td>{{ $user->company_name }}</td>
                                     <td>{{ $user->phone }}</td>
                                     <td>{{ $user->email }}</td>
                                     <td>{{ $user->created_at->format('Y-m-d') }}</td>
@@ -93,8 +56,7 @@
                             </tbody>
                             <tfoot>
                             <tr>
-                                <th>Name</th>
-                                <th>Position</th>
+                                <th>Company Name</th>
                                 <th>Phone</th>
                                 <th>Email</th>
                                 <th>Created date</th>

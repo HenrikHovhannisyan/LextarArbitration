@@ -30,6 +30,7 @@ Route::middleware(['auth', 'is_admin'])->prefix('admin')->group(function () {
     Route::get('/case-manager', [UserController::class, 'caseManager'])->name('users.caseManager');
     Route::get('/partners', [UserController::class, 'partners'])->name('users.partners');
     Route::get('/add-partner', [UserController::class, 'addPartner'])->name('users.addPartner');
+    Route::post('/create-partner', [UserController::class, 'createPartner'])->name('users.createPartner');
 });
 
 Auth::routes();
@@ -38,6 +39,6 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/faq', [HomeController::class, 'faq'])->name('faq');
 Route::get('/rules-forms', [HomeController::class, 'rulesForms'])->name('rules-forms');
 Route::resource('cases', ContractController::class);
-Route::resource('partners', PartnerController::class);
+Route::resource('partner', PartnerController::class);
 Route::resource('users', UserController::class);
 
