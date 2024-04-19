@@ -37,9 +37,9 @@
             </a>
             <ul class="aside-menu">
 
-                @if(Auth::user()->is_admin == 3)
-                    <li class="{{isActiveRoute("partners.index")}}">
-                        <a href="{{route('partners.index')}}">
+                @if(Auth::user()->is_admin == 4)
+                    <li class="{{isActiveRoute("partner.index")}}">
+                        <a href="{{route('partner.index')}}">
                             <img src="/user-dashboard/images/edit 1.png" alt="edit icon">
                             Partner Dashboard
                         </a>

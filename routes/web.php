@@ -40,5 +40,4 @@ Route::get('/faq', [HomeController::class, 'faq'])->name('faq');
 Route::get('/rules-forms', [HomeController::class, 'rulesForms'])->name('rules-forms');
 Route::resource('cases', ContractController::class);
 Route::resource('partner', PartnerController::class);
-Route::resource('users', UserController::class);
 

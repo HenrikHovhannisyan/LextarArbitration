@@ -22,7 +22,7 @@ class ContractController extends Controller
     public function index()
     {
         $cases = Contract::all();
-        return view('pages.user-dashboard', compact('cases'));
+        return view('pages.user.dashboard', compact('cases'));
     }
 
     /**
@@ -94,7 +94,7 @@ class ContractController extends Controller
     public function show($id)
     {
         $case = Contract::findOrFail($id);
-        return view('pages.user-single', compact('case'));
+        return view('pages.user.single', compact('case'));
     }
 
     /**
