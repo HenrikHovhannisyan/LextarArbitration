@@ -10,9 +10,18 @@
         <section>
             <div class="user-container">
                 <div class="user-main-title-container">
-                    <a href="{{route('cases.index')}}" class="case-number"><img src="../images/back-icon.png" alt="back icon"></a>
+                    <a href="@if(Auth::user()->is_admin == 3){{route('manager.index')}} @else {{route('cases.index')}} @endif" class="case-number"><img src="../images/back-icon.png"
+                                                                                alt="back icon"></a>
                     <div class="left-side">
-                        <h1 class="user-main-title">{{$case->number}}</h1>
+                        <div class="d-flex">
+                            <h1 class="user-main-title">{{$case->number}}</h1>
+                            @if(Auth::user()->is_admin == 3)
+                                <button type="button" class="btn btn-primary ms-2" data-bs-toggle="modal"
+                                        data-bs-target="#editModal">
+                                    Edit
+                                </button>
+                            @endif
+                        </div>
                         <span class="paragraph">Case Overview & Details</span>
                     </div>
                 </div>
@@ -28,16 +37,17 @@
                     </thead>
                     <tbody>
                     <tr>
-                        <td class="text-capitalize">{{$case->status}}</th>
+                        <td class="text-capitalize">
+                        {{$case->status}}</th>
                         <td>{{$case->claimant}}</td>
-                        <td>-</td>
-                        <td>-</td>
-                        <td>-</td>
+                        <td>@if($case->respondent) {{$case->respondent}} @else - @endif</td>
+                        <td>@if($case->arbitrator) {{$case->arbitrator}} @else - @endif</td>
+                        <td>@if($case->partner) {{$case->partner}} @else - @endif</td>
                     </tr>
                     </tbody>
                 </table>
                 <div class="single-case-tables">
-                    <div class="upcoming-events">
+                    <div class="upcoming-events w-100">
                         <h2>Upcoming Events</h2>
                         <table class="dashboard-table">
                             <thead>
@@ -50,30 +60,20 @@
                             </tr>
                             </thead>
                             <tbody>
-                            <tr>
-                                <td>Hearing</th>
+                            {{--<tr>
+                                <td>Hearing
+                                </th>
                                 <td>CASE-123456</td>
                                 <td>Discovery</td>
-                                <td>2024-01-20 </td>
+                                <td>2024-01-20</td>
                                 <td>
                                     <a href="">
                                         Join
-                                        <img src="../images/arrow-right-blue.png" class="table-right-arrow" alt="arrow right">
+                                        <img src="../images/arrow-right-blue.png" class="table-right-arrow"
+                                             alt="arrow right">
                                     </a>
                                 </td>
-                            </tr>
-                            <tr>
-                                <td>Conference</th>
-                                <td>CASE-789012</td>
-                                <td>Settlement</td>
-                                <td>2024-01-25</td>
-                                <td>
-                                    <a href="" class="disabled">
-                                        Join
-                                        <img src="../images/arrow-right-blue.png" class="table-right-arrow" alt="arrow right">
-                                    </a>
-                                </td>
-                            </tr>
+                            </tr>--}}
                             </tbody>
                         </table>
                     </div>
@@ -86,29 +86,18 @@
                         <table class="dashboard-table">
                             <thead>
                             <tr>
-                                <th scope="col">Document</th>
                                 <th scope="col">UPLOADED BY</th>
                                 <th scope="col">Action</th>
                             </tr>
                             </thead>
                             <tbody>
                             <tr>
-                                <td>Document 1</th>
                                 <td>John Doe</td>
                                 <td>
                                     <a href="">
                                         View
-                                        <img src="../images/arrow-right-blue.png" class="table-right-arrow" alt="arrow right">
-                                    </a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Document 2</th>
-                                <td>Jane Smith</td>
-                                <td>
-                                    <a href="">
-                                        View
-                                        <img src="../images/arrow-right-blue.png" class="table-right-arrow" alt="arrow right">
+                                        <img src="../images/arrow-right-blue.png" class="table-right-arrow"
+                                             alt="arrow right">
                                     </a>
                                 </td>
                             </tr>
@@ -121,6 +110,49 @@
         </section>
     </main>
 
+    </div>
+
+    <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="editModalLabel">Edit Case</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <!-- Add your edit form here -->
+                    <form action="{{ route('cases.update', ['case' => $case->id]) }}" method="POST">
+                        @csrf
+                        @method('PUT')
+
+                        <div class="mb-3">
+                            <label for="respondent" class="form-label">Respondent</label>
+                            <input type="text" class="form-control" id="respondent" name="respondent"
+                                   value="{{ $case->respondent }}" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="arbitrator" class="form-label">Arbitrator</label>
+                            <input type="text" class="form-control" id="arbitrator" name="arbitrator"
+                                   value="{{ $case->arbitrator }}" required>
+                        </div>
+                        <div class="mb-3">
+                            <div class="form-group">
+                                <label for="partner">Partner</label>
+                                <select class="form-control" id="partner" name="partner" required>
+                                    <option value="">Select Partner</option>
+{{--                                    <option value="{{ $case->partner }}">{{ $case->partner }}</option>--}}
+                                    @foreach($partners as $partner)
+                                        <option value="{{ $partner->company_name }}">{{ $partner->company_name }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary">Update</button>
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
 
 @endsection

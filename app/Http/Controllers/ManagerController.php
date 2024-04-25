@@ -21,7 +21,7 @@ class ManagerController extends Controller
      */
     public function index()
     {
-        $cases = Contract::all();
+        $cases = Contract::where('status', 'Inactive')->get();
         return view('pages.manager.dashboard', compact('cases'));
     }
 

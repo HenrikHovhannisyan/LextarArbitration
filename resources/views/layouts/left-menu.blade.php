@@ -44,6 +44,13 @@
                             Partner Dashboard
                         </a>
                     </li>
+                @elseif(Auth::user()->is_admin == 3)
+                    <li class="{{isActiveRoute("manager.index")}}">
+                        <a href="{{route('manager.index')}}">
+                            <img src="/user-dashboard/images/edit 1.png" alt="edit icon">
+                            Cases
+                        </a>
+                    </li>
                 @else
                     <li class="{{isActiveRoute("cases.index")}}">
                         <a href="{{route('cases.index')}}">

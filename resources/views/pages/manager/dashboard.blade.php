@@ -1,4 +1,4 @@
-@extends('pages.manager.left-menu')
+@extends('layouts.left-menu')
 
 @section('title')
     Manager Dashboard

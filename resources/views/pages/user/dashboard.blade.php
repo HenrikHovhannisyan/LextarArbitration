@@ -77,7 +77,7 @@
                             <td>{{$case->number}}</td>
                             <td class="text-capitalize">{{$case->status}}</td>
                             <td>{{$case->claimant}}</td>
-                            <td>-</td>
+                            <td>@if($case->respondent) {{$case->respondent}} @else - @endif</td>
                             <td>
                                 <a href="{{ route('cases.show', $case->id) }}">
                                     <span>View Case</span>

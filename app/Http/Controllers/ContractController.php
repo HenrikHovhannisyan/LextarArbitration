@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Contract;
 use App\Models\File;
+use App\Models\User;
 use Exception;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
@@ -106,18 +107,19 @@ class ContractController extends Controller
     public function show($id)
     {
         $case = Contract::findOrFail($id);
-        return view('pages.user.single', compact('case'));
+        $partners = User::where('is_admin', 4)->get();
+        return view('pages.user.single', compact('case', 'partners'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
      * @param int $id
-     * @return void
+     * @return Factory|View
      */
     public function edit($id)
     {
-        //
+
     }
 
     /**
@@ -125,11 +127,30 @@ class ContractController extends Controller
      *
      * @param Request $request
      * @param int $id
-     * @return void
+     * @return RedirectResponse
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'respondent' => 'required|string',
+            'arbitrator' => 'required|string',
+            'partner' => 'required|string',
+        ]);
+
+        // Find the case by ID
+        $case = Contract::findOrFail($id);
+
+        // Update the case properties
+        $case->respondent = $request->input('respondent');
+        $case->arbitrator = $request->input('arbitrator');
+        $case->partner = $request->input('partner');
+        $case->status = 'active';
+
+        // Save the updated case details
+        $case->save();
+
+        // Redirect back to the case details page or any other desired route
+        return redirect()->route('cases.show', ['case' => $case->id])->with('success', 'Case updated successfully.');
     }
 
     /**
