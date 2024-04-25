@@ -3,12 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Models\Contract;
+use App\Models\File;
 use Exception;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 
 class ContractController extends Controller
@@ -58,6 +60,9 @@ class ContractController extends Controller
             'filing' => 'required|string',
         ]);
 
+        // Get the authenticated user
+        $user = Auth::user();
+
         // Handle file upload
         if ($request->hasFile('file')) {
             $file = $request->file('file');
@@ -65,20 +70,26 @@ class ContractController extends Controller
             $fileName = date('YmdHis') . '_' . Str::random(5) . '.' . $file->getClientOriginalExtension();
             $file->move($destinationPath, $fileName);
             $filePath = $destinationPath . $fileName;
+
+            // Create contract record
+            $contract = new Contract();
+            $contract->user_id = $user->id;
+            $contract->claimant = $request->input('claimant');
+            $contract->email = $request->input('email');
+            $contract->phone = $request->input('phone');
+            $contract->subject = $request->input('subject');
+            $contract->message = $request->input('message');
+            $contract->number = $case_number;
+            $contract->filing = $request->input('filing');
+            $contract->save();
+
+            // Create file record and associate with contract
+            $fileRecord = new File();
+            $fileRecord->filename = $filePath;
+            $fileRecord->user_id = $user->id; // Set user_id using authenticated user's ID
+            $fileRecord->contract_id = $contract->id; // Set contract_id
+            $fileRecord->save();
         }
-
-        // Store the contract in the database
-        $contract = new Contract();
-        $contract->claimant = $request->input('claimant');
-        $contract->email = $request->input('email');
-        $contract->phone = $request->input('phone');
-        $contract->subject = $request->input('subject');
-        $contract->message = $request->input('message');
-        $contract->number = $case_number;
-        $contract->file = $filePath;
-        $contract->filing = $request->input('filing');
-
-        $contract->save();
 
         // Redirect to a success page or route
         return redirect()->route('cases.index')->with('success', 'Contract created successfully.');

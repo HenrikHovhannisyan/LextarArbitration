@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('contracts', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->string('number');
             $table->string('status')->default('inactive');
             $table->string('claimant');
@@ -22,7 +23,6 @@ return new class extends Migration
             $table->string('phone');
             $table->string('subject');
             $table->text('message');
-            $table->string('file');
             $table->string('filing');
             $table->string('respondent')->nullable();
             $table->string('arbitrator')->nullable();

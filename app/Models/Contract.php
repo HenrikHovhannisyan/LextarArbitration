@@ -15,6 +15,7 @@ class Contract extends Model
      * @var array
      */
     protected $fillable = [
+        'user_id',
         'number',
         'status',
         'claimant',
@@ -22,10 +23,14 @@ class Contract extends Model
         'phone',
         'subject',
         'message',
-        'file',
         'filing',
         'respondent',
         'arbitrator',
         'partner',
     ];
+
+    public function file()
+    {
+        return $this->hasOne(File::class);
+    }
 }

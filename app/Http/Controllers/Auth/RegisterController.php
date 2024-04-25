@@ -90,7 +90,7 @@ class RegisterController extends Controller
             'phone' => $data['phone'],
             'password' => Hash::make($data['password']),
             // Additional fields
-            'company_name' => $data['company_name'],
+            'company_name' => $data['company_name'] ?? null,
             'first_name' => $data['first_name'],
             'last_name' => $data['last_name'],
             'agree' => $agree,
