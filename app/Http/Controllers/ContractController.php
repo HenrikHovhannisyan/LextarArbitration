@@ -23,7 +23,8 @@ class ContractController extends Controller
      */
     public function index()
     {
-        $cases = Contract::all();
+        $user = Auth::user()->id;
+        $cases = Contract::where('user_id', $user)->get();
         return view('pages.user.dashboard', compact('cases'));
     }
 
