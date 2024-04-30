@@ -2,7 +2,7 @@
     <div class="container">
         <div class="footer-content">
             <div class="column">
-                <a href="index.html"><div class="logo"><img src="images/footer-logo.png" alt="footer logo"></div></a>
+                <a href="/"><img src="{{asset('images/footer-logo.png')}}" style="width: unset; height: unset" alt="footer logo"></a>
                 <div class="footer-contact-list">
                     <div class="footer-title">Contacts</div>
                     <a href="" class="location paragraph">
@@ -14,21 +14,21 @@
             <div class="column">
                 <div class="footer-title">Quick Links</div>
                 <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="about-us.html">About Us</a></li>
-                    <li><a href="practice-areas.html">Practice Areas</a></li>
-                    <li><a href="rules-forms.html">Rules & Forms</a></li>
-                    <li><a href="">Sign in</a></li>
-                    <li><a href="">Registration</a></li>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="https://wp7387.freelancedeveloper.site/about/">About Us</a></li>
+                    <li><a href="https://wp7387.freelancedeveloper.site/practice-areas/">Practice Areas</a></li>
+                    <li><a href="https://wp7387.freelancedeveloper.site/rules-and-forms/">Rules & Forms</a></li>
+                    <li><a href="{{ route('login') }}">Sign in</a></li>
+                    <li><a href="{{ route('register') }}">Registration</a></li>
                 </ul>
             </div>
             <div class="column">
                 <div class="footer-title">Helpful</div>
                 <ul>
-                    <li><a href="contact-us.html">Contact</a></li>
-                    <li><a href="faq.html">FAQ</a></li>
-                    <li><a href="">Terms of use</a></li>
-                    <li><a href="">Privacy Policy</a></li>
+                    <li><a href="https://wp7387.freelancedeveloper.site/contact/">Contact</a></li>
+                    <li><a href="https://wp7387.freelancedeveloper.site/faq/">FAQ</a></li>
+                    <li><a href="#">Terms of use</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
                 </ul>
             </div>
             <div class="column">

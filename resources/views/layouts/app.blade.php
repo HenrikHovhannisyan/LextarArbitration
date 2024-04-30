@@ -32,25 +32,15 @@
     <header>
         <div class="container">
             <nav>
-                <a href="/"><div class="logo"><img src="{{asset('images/Logo.png')}}" alt="logo"></div></a>
+                <a href="/">
+                        <img src="{{asset('images/logo.png')}}" alt="logo">
+                </a>
                 <div class="navbar">
                     <ul>
-                        <li><a href="about-us.html">About</a></li>
-                        <li class="menu_has_dropdown">
-                            <a>Practice Areas</a>
-                            <div class="header-dropdown">
-                                <div class="main-container">
-                                    <ul class="header-dropdown-menu">
-                                        <li><a href="practice-areas.html">Contract Disputes</a></li>
-                                        <li><a href="practice-areas.html">Employment Disputes</a></li>
-                                        <li><a href="practice-areas.html">Intellectual Property Disputes</a></li>
-                                        <li><a href="practice-areas.html">International Business Disputes</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </li>
+                        <li><a href="https://wp7387.freelancedeveloper.site/about/">About</a></li>
+                        <li><a href="https://wp7387.freelancedeveloper.site/practice-areas/">Practice Areas</a></li>
                         <li><a href="https://wp7387.freelancedeveloper.site/rules-and-forms/">Rules & Forms</a></li>
-                        <li><a href="contact-us.html">Contact</a></li>
+                        <li><a href="https://wp7387.freelancedeveloper.site/contact/">Contact</a></li>
                     </ul>
                 </div>
                 <ul class="nav-right-side">
