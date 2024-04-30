@@ -1,8 +1,8 @@
 <div id="sidebar-wrapper">
     <ul class="sidebar-nav">
         <li class="sidebar-brand">
-            <a href="{{ route('home') }}">
-                <img src="{{asset('img/logo.png')}}" class="img-fluid" width="200" alt="">
+            <a href="{{ route('home') }}" class="text-center">
+                <img src="{{asset('images/footer-logo.png')}}" class="img-fluid" width="100" alt="">
             </a>
         </li>
         <li>
