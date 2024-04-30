@@ -3,12 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Models\Contract;
+use App\Models\User;
 use Exception;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 
 class PartnerController extends Controller
@@ -21,7 +23,7 @@ class PartnerController extends Controller
      */
     public function index()
     {
-        $cases = Contract::all();
+        $cases = Contract::where('partner', Auth::user()->id)->get();
         return view('pages.partner.dashboard', compact('cases'));
     }
 
@@ -94,7 +96,8 @@ class PartnerController extends Controller
     public function show($id)
     {
         $case = Contract::findOrFail($id);
-        return view('pages.partner.single', compact('case'));
+        $partner = User::where('id', $case->partner)->first();
+        return view('pages.partner.single', compact('case', 'partner'));
     }
 
     /**

@@ -108,7 +108,9 @@ class ContractController extends Controller
     {
         $case = Contract::findOrFail($id);
         $partners = User::where('is_admin', 4)->get();
-        return view('pages.user.single', compact('case', 'partners'));
+        $partner = User::where('id', $case->partner)->first();
+        $files = File::where('contract_id', $case->id)->get();
+        return view('pages.user.single', compact('case', 'partners', 'partner', 'files'));
     }
 
     /**

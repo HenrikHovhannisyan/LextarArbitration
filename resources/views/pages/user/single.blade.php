@@ -10,8 +10,9 @@
         <section>
             <div class="user-container">
                 <div class="user-main-title-container">
-                    <a href="@if(Auth::user()->is_admin == 3){{route('manager.index')}} @else {{route('cases.index')}} @endif" class="case-number"><img src="../images/back-icon.png"
-                                                                                alt="back icon"></a>
+                    <a href="@if(Auth::user()->is_admin == 3){{route('manager.index')}} @else {{route('cases.index')}} @endif"
+                       class="case-number"><img src="../images/back-icon.png"
+                                                alt="back icon"></a>
                     <div class="left-side">
                         <div class="d-flex">
                             <h1 class="user-main-title">{{$case->number}}</h1>
@@ -42,7 +43,7 @@
                         <td>{{$case->claimant}}</td>
                         <td>@if($case->respondent) {{$case->respondent}} @else - @endif</td>
                         <td>@if($case->arbitrator) {{$case->arbitrator}} @else - @endif</td>
-                        <td>@if($case->partner) {{$case->partner}} @else - @endif</td>
+                        <td>@if($case->partner) {{ $partner->company_name }} @else - @endif</td>
                     </tr>
                     </tbody>
                 </table>
@@ -87,20 +88,22 @@
                             <thead>
                             <tr>
                                 <th scope="col">UPLOADED BY</th>
-                                <th scope="col">Action</th>
+                                <th scope="col">Attachment</th>
                             </tr>
                             </thead>
                             <tbody>
-                            <tr>
-                                <td>John Doe</td>
-                                <td>
-                                    <a href="">
-                                        View
-                                        <img src="../images/arrow-right-blue.png" class="table-right-arrow"
-                                             alt="arrow right">
-                                    </a>
-                                </td>
-                            </tr>
+                            @foreach($files as $file)
+                                <tr>
+                                    <td>{{ $file->user->name }}</td>
+                                    <td>
+                                        <a href="{{ asset($file->filename) }}" target="_blank">
+                                            View
+                                            <img src="../images/arrow-right-blue.png" class="table-right-arrow"
+                                                 alt="arrow right">
+                                        </a>
+                                    </td>
+                                </tr>
+                            @endforeach
                             </tbody>
                         </table>
                     </div>
@@ -140,9 +143,9 @@
                                 <label for="partner">Partner</label>
                                 <select class="form-control" id="partner" name="partner" required>
                                     <option value="">Select Partner</option>
-{{--                                    <option value="{{ $case->partner }}">{{ $case->partner }}</option>--}}
+                                    {{--                                    <option value="{{ $case->partner }}">{{ $case->partner }}</option>--}}
                                     @foreach($partners as $partner)
-                                        <option value="{{ $partner->company_name }}">{{ $partner->company_name }}</option>
+                                        <option value="{{ $partner->id }}">{{ $partner->company_name }}</option>
                                     @endforeach
                                 </select>
                             </div>

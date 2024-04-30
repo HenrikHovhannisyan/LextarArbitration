@@ -117,7 +117,7 @@
                             <td>{{$case->number}}</td>
                             <td class="text-capitalize">{{$case->status}}</td>
                             <td>{{$case->claimant}}</td>
-                            <td>-</td>
+                            <td>{{$case->respondent}}</td>
                             <td>
                                 <a href="{{ route('partner.show', $case->id) }}">
                                     <span>View Case</span>
