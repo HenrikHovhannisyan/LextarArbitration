@@ -32,7 +32,7 @@
     <header>
         <div class="container">
             <nav>
-                <a href="/">
+                <a href="https://wp7387.freelancedeveloper.site/">
                         <img src="{{asset('images/logo.png')}}" alt="logo">
                 </a>
                 <div class="navbar">

@@ -2,7 +2,7 @@
     <div class="container">
         <div class="footer-content">
             <div class="column">
-                <a href="/"><img src="{{asset('images/footer-logo.png')}}" style="width: unset; height: unset" alt="footer logo"></a>
+                <a href="https://wp7387.freelancedeveloper.site/"><img src="{{asset('images/footer-logo.png')}}" style="width: unset; height: unset" alt="footer logo"></a>
                 <div class="footer-contact-list">
                     <div class="footer-title">Contacts</div>
                     <a href="" class="location paragraph">
