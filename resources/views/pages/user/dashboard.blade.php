@@ -7,6 +7,29 @@
 @section('content')
 
     <main class="user-dashboard-main">
+    @if(Session::has('success'))
+        <!-- Modal -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                 aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-body text-center">
+                            <img src="{{ asset('images/access-popup-icon.png') }}" class="img-fluid mb-3"
+                                 style="width: 155px;">
+                            <h2 class="">
+                                <strong>{{ Session::get('success') }}</strong>
+                            </h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <script>
+                document.addEventListener("DOMContentLoaded", function () {
+                    let myModal = new bootstrap.Modal(document.getElementById('exampleModal'));
+                    myModal.show();
+                });
+            </script>
+        @endif
         <section>
             <div class="user-container">
                 <div class="user-main-title-container">

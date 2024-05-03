@@ -44,7 +44,7 @@ class RegisterController extends Controller
     /**
      * Get a validator for an incoming registration request.
      *
-     * @param  array  $data
+     * @param array $data
      * @return \Illuminate\Contracts\Validation\Validator
      */
     protected function validator(array $data)
@@ -77,14 +77,15 @@ class RegisterController extends Controller
     /**
      * Create a new user instance after a valid registration.
      *
-     * @param  array  $data
+     * @param array $data
      * @return User
      */
     protected function create(array $data)
     {
         $agree = isset($data['agree']) ? $data['agree'] : false;
         $authorize = isset($data['authorize']) ? $data['authorize'] : false;
-        return User::create([
+
+        $user = User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'phone' => $data['phone'],
@@ -102,5 +103,12 @@ class RegisterController extends Controller
             'fax' => $data['fax'],
             'authorize' => $authorize,
         ]);
+
+        if ($user) {
+            session()->flash('success', 'You have successfully registered!');
+        }
+
+        return $user;
     }
+
 }
