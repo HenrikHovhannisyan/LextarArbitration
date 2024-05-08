@@ -87,6 +87,31 @@
                             <div class="header-dropdown sign-in-dropdown">
                                 <div class="main-container">
                                     <ul class="header-dropdown-menu">
+                                        @if(Auth::user()->is_admin == 4)
+                                            <li>
+                                                <a href="{{route('partner.index')}}">
+                                                    Dashboard
+                                                </a>
+                                            </li>
+                                        @elseif(Auth::user()->is_admin == 3)
+                                            <li>
+                                                <a href="{{route('manager.index')}}">
+                                                    Dashboard
+                                                </a>
+                                            </li>
+                                        @elseif(auth()->user()->is_admin == 1 || auth()->user()->is_admin == 2)
+                                            <li>
+                                                <a href="{{route('admin.home')}}">
+                                                    Dashboard
+                                                </a>
+                                            </li>
+                                        @else
+                                            <li>
+                                                <a href="{{route('cases.index')}}">
+                                                    Dashboard
+                                                </a>
+                                            </li>
+                                        @endif
                                         <li>
                                             <a href="{{ route('logout') }}"
                                                onclick="event.preventDefault();
