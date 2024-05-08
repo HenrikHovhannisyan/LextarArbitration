@@ -46,9 +46,13 @@
                                     <td>{{ $user->created_at->format('Y-m-d') }}</td>
                                     <td>
                                         @if($user->is_admin !== 1)
-                                            <button type="submit" class="btn btn-outline-danger">
-                                                <i class="fa-solid fa-trash-can"></i>
-                                            </button>
+                                            <form action="{{ route('users.destroy', $user->id) }}" method="POST">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="submit" class="btn btn-outline-danger">
+                                                    <i class="fa-solid fa-trash-can"></i>
+                                                </button>
+                                            </form>
                                         @endif
                                     </td>
                                 </tr>

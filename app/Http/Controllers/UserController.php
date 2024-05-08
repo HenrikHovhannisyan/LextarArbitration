@@ -115,11 +115,18 @@ class UserController extends Controller
      * Remove the specified resource from storage.
      *
      * @param int $id
-     * @return void
+     * @return RedirectResponse
      */
     public function destroy($id)
     {
-        //
+        $user = User::findOrFail($id);
+
+        if(auth()->user()->is_admin === 1) {
+            $user->delete(); // Delete the user
+            return back()->with('success', 'User deleted successfully');
+        } else {
+            return back()->with('error', 'Unauthorized action');
+        }
     }
 
     /**
