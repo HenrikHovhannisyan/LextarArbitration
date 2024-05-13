@@ -22,6 +22,13 @@ class ContractController extends Controller
      * @return Factory|View
      * @throws Exception
      */
+    public function adminIndex()
+    {
+        $cases = Contract::all();
+        $partners = User::whereIn('id', $cases->pluck('partner'))->get();
+        return view('admin.cases.index', compact('cases', 'partners'));
+    }
+
     public function index()
     {
         $user = Auth::user()->id;

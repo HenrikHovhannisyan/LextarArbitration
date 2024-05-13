@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Contract;
 use App\Models\Form;
 use App\Models\Rule;
 use App\Models\User;
@@ -29,6 +30,7 @@ class AdminController extends Controller
         $caseManagerCount = count(User::where('is_admin', 3)->get());
         $rulesCount = count(Rule::all());
         $formsCount = count(Form::all());
-        return view('admin.home', compact('userCount', 'caseManagerCount', 'rulesCount', 'formsCount'));
+        $casesCount = count(Contract::all());
+        return view('admin.home', compact('userCount', 'caseManagerCount', 'rulesCount', 'formsCount', 'casesCount'));
     }
 }

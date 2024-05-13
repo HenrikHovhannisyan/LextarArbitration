@@ -32,6 +32,7 @@ Route::middleware(['auth', 'is_admin'])->prefix('admin')->group(function () {
     Route::get('/partners', [UserController::class, 'partners'])->name('users.partners');
     Route::get('/add-partner', [UserController::class, 'addPartner'])->name('users.addPartner');
     Route::post('/create-partner', [UserController::class, 'createPartner'])->name('users.createPartner');
+    Route::get('/cases', [ContractController::class, 'adminIndex'])->name('cases.adminIndex');
 });
 
 Auth::routes();

@@ -24,6 +24,12 @@
                     <span class="ms-1">Case Manager</span>
                 </a>
             </li>
+            <li>
+                <a href="{{ route('cases.adminIndex') }}" class="{{ isActiveRoute('cases.adminIndex') }}">
+                    <i class="fa-solid fa-file-signature"></i>
+                    <span class="ms-1">Cases</span>
+                </a>
+            </li>
         @endif
         <li>
             <a href="{{ route('users.partners') }}" class="{{ isActiveRoute('users.partners') }}">
