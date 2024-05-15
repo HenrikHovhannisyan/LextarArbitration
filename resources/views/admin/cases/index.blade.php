@@ -23,6 +23,9 @@
                             <thead>
                             <tr>
                                 <th>Number</th>
+                                @if(Auth::user()->is_admin === 1)
+                                    <th>Reactivate</th>
+                                @endif
                                 <th>Status</th>
                                 <th>Claimant</th>
                                 <th>Respondent</th>
@@ -33,7 +36,30 @@
                             <tbody>
                             @foreach($cases as $case)
                                 <tr>
-                                    <td>{{ $case->number }}</td>
+                                    <td class="@if($case->reactivate == 0) text-danger @else text-success @endif">{{ $case->number }}</td>
+                                    @if(Auth::user()->is_admin === 1)
+                                        <td>
+                                            <form method="POST" action="{{ route('cases.reactivate', $case->id) }}">
+                                                @csrf
+                                                @method('PUT')
+
+                                                <div class="d-flex">
+                                                    <select class="form-select role_select" name="reactivate">
+                                                        <option value="1" @if($case->reactivate == 1) selected @endif>
+                                                            Reactivate
+                                                        </option>
+                                                        <option value="0" @if($case->reactivate == 0) selected @endif>
+                                                            Place on Hold
+                                                        </option>
+                                                    </select>
+
+                                                    <button class="btn btn-success" type="submit">
+                                                        <i class="fa-solid fa-check"></i>
+                                                    </button>
+                                                </div>
+                                            </form>
+                                        </td>
+                                    @endif
                                     <td>{{ $case->status }}</td>
                                     <td>{{ $case->claimant }}</td>
                                     <td>{{ $case->respondent }}</td>
@@ -51,6 +77,9 @@
                             <tfoot>
                             <tr>
                                 <th>Number</th>
+                                @if(Auth::user()->is_admin === 1)
+                                    <th>Reactivate</th>
+                                @endif
                                 <th>Status</th>
                                 <th>Claimant</th>
                                 <th>Respondent</th>

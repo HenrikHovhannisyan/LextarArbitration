@@ -172,4 +172,17 @@ class ContractController extends Controller
     {
         //
     }
+
+
+    public function reactivate(Request $request, Contract $case)
+    {
+        $request->validate([
+            'reactivate' => 'required|boolean',
+        ]);
+
+        $case->reactivate = $request->input('reactivate');
+        $case->save();
+
+        return redirect()->route('cases.adminIndex')->with('success', 'Case status updated successfully.');
+    }
 }

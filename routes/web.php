@@ -33,6 +33,7 @@ Route::middleware(['auth', 'is_admin'])->prefix('admin')->group(function () {
     Route::get('/add-partner', [UserController::class, 'addPartner'])->name('users.addPartner');
     Route::post('/create-partner', [UserController::class, 'createPartner'])->name('users.createPartner');
     Route::get('/cases', [ContractController::class, 'adminIndex'])->name('cases.adminIndex');
+    Route::put('/cases/{case}/reactivate', [ContractController::class, 'reactivate'])->name('cases.reactivate');
 });
 
 Auth::routes();
