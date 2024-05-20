@@ -36,7 +36,13 @@
                             <tbody>
                             @foreach($cases as $case)
                                 <tr>
-                                    <td class="@if($case->reactivate == 0) text-danger @else text-success @endif">{{ $case->number }}</td>
+                                    <td class="
+                                        @if($case->reactivate == 'active') text-success
+                                        @elseif($case->reactivate == 'inactive') text-danger
+                                        @else text-warning
+                                        @endif">
+                                            {{ $case->number }}
+                                    </td>
                                     @if(Auth::user()->is_admin === 1)
                                         <td>
                                             <form method="POST" action="{{ route('cases.reactivate', $case->id) }}">
@@ -45,11 +51,17 @@
 
                                                 <div class="d-flex">
                                                     <select class="form-select role_select" name="reactivate">
-                                                        <option value="1" @if($case->reactivate == 1) selected @endif>
-                                                            Reactivate
+                                                        <option value="active"
+                                                                @if($case->reactivate == 'active') selected @endif>
+                                                            Active
                                                         </option>
-                                                        <option value="0" @if($case->reactivate == 0) selected @endif>
-                                                            Place on Hold
+                                                        <option value="inactive"
+                                                                @if($case->reactivate == 'inactive') selected @endif>
+                                                            Inactive
+                                                        </option>
+                                                        <option value="on-hold"
+                                                                @if($case->reactivate == 'on-hold') selected @endif>
+                                                            On Hold
                                                         </option>
                                                     </select>
 

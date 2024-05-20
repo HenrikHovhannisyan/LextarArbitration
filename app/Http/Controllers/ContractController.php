@@ -177,7 +177,7 @@ class ContractController extends Controller
     public function reactivate(Request $request, Contract $case)
     {
         $request->validate([
-            'reactivate' => 'required|boolean',
+            'reactivate' => 'required',
         ]);
 
         $case->reactivate = $request->input('reactivate');

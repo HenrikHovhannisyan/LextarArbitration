@@ -27,7 +27,7 @@ return new class extends Migration
             $table->string('respondent')->nullable();
             $table->string('arbitrator')->nullable();
             $table->string('partner')->nullable();
-            $table->boolean('reactivate')->default(1);
+            $table->string('status')->default('active');
             $table->timestamps();
         });
     }
