@@ -31,10 +31,15 @@ class ContractController extends Controller
 
     public function index()
     {
-        $user = Auth::user()->id;
-        $cases = Contract::where('user_id', $user)->get();
-        return view('pages.user.dashboard', compact('cases'));
+        if (Auth::check()) {
+            $user = Auth::user()->id;
+            $cases = Contract::where('user_id', $user)->get();
+            return view('pages.user.dashboard', compact('cases'));
+        } else {
+            return redirect()->route('login')->with('error', 'You need to be logged in to view this page.');
+        }
     }
+
 
     /**
      * Show the form for creating a new resource.

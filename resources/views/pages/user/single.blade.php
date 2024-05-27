@@ -81,7 +81,10 @@
                     <div class="doct-files">
                         <div class="doct-files-title">
                             <h2>Case Documents and Files </h2>
-                            <button class="upload-btn" data-toggle="modal" data-target="#uploadModal">Upload</button>
+                            @if($case->reactivate === "inactive" || $case->reactivate ==="on-hold")
+                            @else
+                            <button class="upload-btn">Upload</button>
+                            @endif
                         </div>
 
                         <table class="dashboard-table">

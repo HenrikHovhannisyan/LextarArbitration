@@ -73,17 +73,8 @@
                             Inactive
                         </label>
                     </div>
-                    <div class="filter-item">
-                        <label class="label-container">
-                            <input
-                                type="radio"
-                                name="filterRadio"
-                            />
-                            <span class="checkmark"></span>
-                            Closed
-                        </label>
-                    </div>
                 </div>
+
                 <table class="dashboard-table">
                     <thead>
                     <tr>
@@ -96,7 +87,7 @@
                     </thead>
                     <tbody>
                     @foreach($cases as $case)
-                        <tr>
+                        <tr style="background-color: @if($case->reactivate === "active") #dcfff3 @elseif($case->reactivate ==="on-hold") #fff9dc @else #ffdcdc @endif">
                             <td>{{$case->number}}</td>
                             <td class="text-capitalize">{{$case->status}}</td>
                             <td>{{$case->claimant}}</td>
