@@ -9,7 +9,7 @@ class File extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['filename'];
+    protected $fillable = ['filename', 'contract_id', 'user_id'];
 
     public function contract()
     {
@@ -21,4 +21,3 @@ class File extends Model
         return $this->belongsTo(User::class);
     }
 }
-

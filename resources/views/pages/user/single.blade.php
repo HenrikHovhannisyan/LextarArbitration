@@ -83,7 +83,9 @@
                             <h2>Case Documents and Files </h2>
                             @if($case->reactivate === "inactive" || $case->reactivate ==="on-hold")
                             @else
-                            <button class="upload-btn">Upload</button>
+                            <button class="upload-btn" data-toggle="modal" data-target="#newFileCaseModal">
+                                Upload
+                            </button>
                             @endif
                         </div>
 

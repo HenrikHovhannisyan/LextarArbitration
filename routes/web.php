@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ContractController;
+use App\Http\Controllers\FileController;
 use App\Http\Controllers\FormsController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ManagerController;
@@ -45,4 +46,5 @@ Route::resource('cases', ContractController::class);
 Route::resource('manager', ManagerController::class);
 Route::resource('partner', PartnerController::class);
 Route::resource('users', UserController::class);
+Route::resource('files', FileController::class);
 

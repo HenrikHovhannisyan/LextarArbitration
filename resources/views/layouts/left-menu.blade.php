@@ -188,6 +188,36 @@
             </div>
         </div>
 
+        <!-- Add New File Case Modal -->
+        <div class="modal fade upload-modal file-case-modal" id="newFileCaseModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true"><img src="../images/Close_Circle.png" alt="close icon"></span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <h1 class="text-center">Upload New File</h1>
+                        <div class="file-case-content user-dashboard-file-case">
+                            <div class="right-side w-100" id="arbitration-rules-content">
+                                <form action="{{ route('files.store') }}" method="POST" class="file-case-form" enctype="multipart/form-data">
+                                    @csrf
+                                    <div class="file-input form-item w-100">
+                                        <div class="attach-text">Attach document</div>
+                                        <input type="file" name="file" class="file w-100" placeholder="Attach document" required="">
+                                        <span>Please enter attach document.</span>
+                                    </div>
+                                    <input type="hidden" name="contract_id" value="{{ $case->id }}">
+                                    <button type="submit" class="submit secondary">Submit</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         @yield('content')
 
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
